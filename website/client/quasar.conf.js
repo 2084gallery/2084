@@ -106,8 +106,33 @@ module.exports = function (/* ctx */) {
     animations: [],
 
     // https://v1.quasar.dev/quasar-cli/developing-ssr/configuring-ssr
+    // ...
     ssr: {
-      pwa: false
+    // -- @quasar/app v1.9.5+ --
+    // optional; add/remove/change properties
+    // of production generated package.json
+      extendPackageJson (pkg) {
+        // directly change props of pkg;
+        // no need to return anything
+      },
+
+      // -- @quasar/app v1.5+ --
+      // optional; webpack config Object for
+      // the Webserver part ONLY (/src-ssr/)
+      // which is invoked for production (NOT for dev)
+      extendWebpack (cfg) {
+        // directly change props of cfg;
+        // no need to return anything
+      },
+
+      // -- @quasar/app v1.5+ --
+      // optional; EQUIVALENT to extendWebpack() but uses webpack-chain;
+      // the Webserver part ONLY (/src-ssr/)
+      // which is invoked for production (NOT for dev)
+      chainWebpack (chain) {
+        // chain is a webpack-chain instance
+        // of the Webpack configuration
+      }
     },
 
     // https://v1.quasar.dev/quasar-cli/developing-pwa/configuring-pwa
