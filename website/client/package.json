@@ -2,30 +2,31 @@
   "name": "front",
   "version": "0.0.1",
   "description": "Website for the 2084 gallery club",
-  "author": "2084 Gallery <2084gallery.com>",
+  "productName": "2084-website-front",
+  "author": "tbarreau-2084 <tbarreau@2084gallery.com>",
   "private": true,
   "scripts": {
-    "start": "node index.js",
-    "build": "quasar build -m ssr && rm yarn.lock && mv dist/ssr/* ./"
+    "lint": "eslint --ext .js,.vue ./",
+    "test": "echo \"No test specified\" && exit 0",
+    "start": "node index.js"
   },
   "dependencies": {
-    "axios": "0.21.1",
-    "core-js": "3.10.0",
-    "quasar": "1.15.10",
-    "vue-i18n": "8.24.2",
-    "compression": "^1.0.0",
-    "express": "^4.0.0",
-    "lru-cache": "6.0.0",
-    "vue": "2.6.12",
-    "vue-server-renderer": "2.6.12",
-    "vue-router": "3.2.0",
-    "@quasar/babel-preset-app": "2.0.1",
-    "vuex": "3.6.0"
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "quasar": "^1.0.0",
+    "vue-i18n": "^8.0.0"
   },
-  "engines": {
-    "node": ">= 10.18.1",
-    "npm": ">= 6.13.4",
-    "yarn": ">= 1.21.1"
+  "devDependencies": {
+    "@quasar/app": "^2.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^7.21.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-vue": "^7.7.0",
+    "eslint-webpack-plugin": "^2.4.0"
   },
   "browserslist": [
     "last 10 Chrome versions",
@@ -38,7 +39,9 @@
     "last 10 iOS versions",
     "last 5 Opera versions"
   ],
-  "quasar": {
-    "ssr": true
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
   }
 }
