@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Website for the 2084 gallery club",
   "productName": "2084-website-front",
-  "author": "tbarreau-2084 <tbarreau@2084gallery.com>",
+  "author": "2084 Gallery <2084gallery.com>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
