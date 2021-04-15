@@ -8,7 +8,7 @@ yarn
 ### WEBSITE FRONT END
 **change remote**
 ```bash
-heroku git:remote -a website-2084-front-heroku
+heroku git:remote -a website-2084-client-heroku
 ```
 **push explicit folder on heroku repository**
 ```bash
