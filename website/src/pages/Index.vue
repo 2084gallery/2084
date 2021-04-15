@@ -1,6 +1,7 @@
 <template>
   <q-page class="flex flex-center">
-    <h1>Home page 2084 Gallery</h1>
+    <h1>Welcome to 2084 Gallery</h1>
+    <p>Coming Soon...</p>
   </q-page>
 </template>
 
