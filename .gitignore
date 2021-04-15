@@ -1,15 +1,15 @@
 .DS_Store
 # client folder
-/website/client/.quasar
-/website/client/.DS_Store
-/website/client/.thumbs.db
-/website/client/node_modules
-/website/client/src-cordova/node_modules
-/website/client/src-cordova/platforms
-/website/client/src-cordova/plugins
-/website/client/src-cordova/www
-/website/client/dist
-/website/client/.env
+/website/.quasar
+/website/.DS_Store
+/website/.thumbs.db
+/website/node_modules
+/website/src-cordova/node_modules
+/website/src-cordova/platforms
+/website/src-cordova/plugins
+/website/src-cordova/www
+/website/dist
+/website/.env
 
 # server folder
 /server/.DS_Store
