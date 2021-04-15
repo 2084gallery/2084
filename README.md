@@ -12,7 +12,7 @@ heroku git:remote -a website-2084-front-heroku
 ```
 **push explicit folder on heroku repository**
 ```bash
-  git subtree push --prefix website/client heroku master
+  git subtree push --prefix website heroku master
 ```
 ### BACK END
 **change remote**
