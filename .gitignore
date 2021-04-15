@@ -12,10 +12,10 @@
 /website/.env
 
 # server folder
-/server/.DS_Store
-/server/.thumbs.db
-/server/node_modules
-/server/.env
+/backend/.DS_Store
+/backend/.thumbs.db
+/backend/node_modules
+/backend/.env
 # general
 npm-debug.log*
 yarn-debug.log*
