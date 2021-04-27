@@ -7,9 +7,17 @@
       <div class="col-12 col-md-5">
         <h1 class="text-bold">2084 <br>Gallery</h1>
         <div class="q-mb-md">
-          <q-btn label="Français" flat padding="none" no-caps class="q-mr-xl" @click="setLang('fr-fr')" />
-          <q-btn label="English" flat padding="none" no-caps class="q-mr-xl" @click="setLang('en-us')"/>
-          <q-btn label="普通" flat padding="none" no-caps class="q-mr-xl" />
+          <q-btn
+            v-for="(langOption, i) in langOptions"
+            :key="i"
+            :label="langOption.label"
+            flat
+            padding="none"
+            no-caps
+            class="lang-btn q-mr-xl"
+            :class="{'active': isLangActive(langOption.value) }"
+            @click="setLang(langOption.value)"
+          />
         </div>
       </div>
       <div class="col-12 col-md-6 q-ml-auto">
@@ -53,10 +61,18 @@ export default {
   data () {
     return {
       tab: 'explorer',
-      lang: this.$i18n.locale
+      lang: this.$i18n.locale,
+      langOptions: [
+        { value: 'fr-fr', label: 'Français' },
+        { value: 'en-us', label: 'English' },
+        { value: 'ch-ch', label: '普通' }
+      ]
     }
   },
   methods: {
+    isLangActive (langOption) {
+      return this.lang === langOption
+    },
     setTabs (name) {
       this.tab = name
     },
@@ -66,3 +82,16 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.lang-btn {
+  color: #777777;
+  &:hover {
+    color: black;
+  }
+}
+
+.lang-btn.active {
+  color: black;
+  font-weight: bold;
+}
+</style>
