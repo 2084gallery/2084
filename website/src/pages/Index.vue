@@ -2,13 +2,13 @@
   <q-page>
     <section class="row q-px-lg">
       <div class="col-12 col-md-5 q-mr-auto">
-        test
+
       </div>
       <div class="col-12 col-md-5">
         <h1 class="text-bold">2084 <br>Gallery</h1>
         <div class="q-mb-md">
-          <q-btn label="Français" flat padding="none" no-caps class="q-mr-xl" />
-          <q-btn label="English" flat padding="none" no-caps class="q-mr-xl" />
+          <q-btn label="Français" flat padding="none" no-caps class="q-mr-xl" @click="setLang('fr-fr')" />
+          <q-btn label="English" flat padding="none" no-caps class="q-mr-xl" @click="setLang('en-us')"/>
           <q-btn label="普通" flat padding="none" no-caps class="q-mr-xl" />
         </div>
       </div>
@@ -16,8 +16,8 @@
         <div class="row">
           <div class="col-md-2">
             <div class="column">
-              <q-btn label="Explorer" flat padding="none" ripple="false" no-caps @click="setTabs('explorer')"/>
-              <q-btn label="Contact" flat padding="none" ripple="false" no-caps @click="setTabs('contact')"/>
+              <q-btn label="Explorer" flat padding="none" :ripple="false" no-caps @click="setTabs('explorer')"/>
+              <q-btn label="Contact" flat padding="none" :ripple="false" no-caps @click="setTabs('contact')"/>
             </div>
           </div>
           <div class="col-md">
@@ -29,9 +29,7 @@
               transition-next="jump-up"
             >
             <q-tab-panel name="explorer" class="q-pa-none">
-              <p style="column-count: 2">Le propos de 2084 Gallery s’adresse aux amateurs qui souhaiteront s’investir corps et âme dans la découverte et la préservation de nos patrimoines.
-      Le club rassemblera des personnes attentives, ouvertes, curieuses et déterminées. C’est par la bienveillance et la reconnaissance que nous écrirons ensemble un chapitre de notre histoire commune.
-      Au sein de cet espace intimiste, humble hommage au véritable luxe dans ce qu’il a de plus vertueux, nous forgerons des projets pour dessiner le futur.</p>
+              <p style="column-count: 2" v-html="$t('explorer')"></p>
             </q-tab-panel>
 
               <q-tab-panel name="contact">
@@ -52,12 +50,18 @@
 <script>
 export default {
   name: 'PageIndex',
-  data: () => ({
-    tab: 'explorer'
-  }),
+  data () {
+    return {
+      tab: 'explorer',
+      lang: this.$i18n.locale
+    }
+  },
   methods: {
     setTabs (name) {
       this.tab = name
+    },
+    setLang (lang) {
+      this.$i18n.locale = lang
     }
   }
 }
