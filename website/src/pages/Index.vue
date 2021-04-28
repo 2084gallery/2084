@@ -14,9 +14,12 @@
             flat
             padding="none"
             no-caps
+            no-hover
             class="lang-btn q-mr-xl"
             :class="{'active': isLangActive(langOption.value) }"
             @click="setLang(langOption.value)"
+            @mouseover="hover = true"
+            @mouseout="hover = false"
           />
         </div>
       </div>
@@ -36,11 +39,11 @@
               transition-prev="jump-up"
               transition-next="jump-up"
             >
-            <q-tab-panel name="explorer" class="q-pa-none">
+            <q-tab-panel name="explorer" class="q-pa-none panel-content" :class="{'panel-content-disabled': hover }">
               <p style="column-count: 2" v-html="$t('explorer')"></p>
             </q-tab-panel>
 
-              <q-tab-panel name="contact">
+              <q-tab-panel name="contact" class="q-pa-none">
                 <q-form></q-form>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
@@ -62,6 +65,7 @@ export default {
     return {
       tab: 'explorer',
       lang: this.$i18n.locale,
+      hover: false,
       langOptions: [
         { value: 'fr-fr', label: 'Français' },
         { value: 'en-us', label: 'English' },
@@ -77,21 +81,42 @@ export default {
       this.tab = name
     },
     setLang (lang) {
+      this.lang = lang
+    }
+  },
+  watch: {
+    lang (lang) {
       this.$i18n.locale = lang
     }
   }
 }
 </script>
-<style lang="scss" scoped>
-.lang-btn {
+<style lang="scss">
+.q-btn {
   color: #777777;
   &:hover {
     color: black;
   }
 }
 
-.lang-btn.active {
+.q-btn .q-hoverable:hover {
+  background: red;
+}
+
+body.desktop .q-hoverable:hover > .q-focus-helper {
+  background: transparent;
+}
+
+.q-btn.active {
   color: black;
   font-weight: bold;
+}
+
+.panel-content {
+  transition: color 1s;
+}
+
+.panel-content-disabled {
+  color: #999999;
 }
 </style>
