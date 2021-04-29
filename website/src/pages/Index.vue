@@ -52,6 +52,7 @@
 
     </section>
     <div class="text-bold q-mt-auto footer-logo q-pa-md">2084 Gallery</div>
+    <CustomMediaPlayer></CustomMediaPlayer>
   </q-page>
 </template>
 
@@ -59,7 +60,8 @@
 export default {
   name: 'PageIndex',
   components: {
-    ContactForm: () => import('components/ContactForm')
+    ContactForm: () => import('components/ContactForm'),
+    CustomMediaPlayer: () => import('components/CustomMediaPlayer')
   },
   data () {
     return {
