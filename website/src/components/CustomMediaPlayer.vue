@@ -23,7 +23,7 @@ export default {
       poster: '',
       sources: [
         {
-          src: 'public/virtual_mesh_hand.mp4',
+          src: require('assets/virtual_mesh_hand.mp4'),
           type: 'video/mp4'
         }
       ]
@@ -33,4 +33,10 @@ export default {
 }
 </script>
 <style lang="scss">
+video {
+  z-index: -999;
+  position: absolute;
+  width: 60%;
+  left: 0%;
+}
 </style>

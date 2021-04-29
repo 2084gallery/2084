@@ -12,7 +12,6 @@
     @ended="endAction"
     @paused="avoidPausedByClick"
     @mediaPlayer="mediaPlayerConfig"
-    @click="weird"
     ref="media"
   />
 </template>
@@ -59,8 +58,4 @@ export default {
 }
 </script>
 <style lang="scss">
-.q-media {
-  min-height: 400px;
-  // background-color: white !important;
-}
 </style>

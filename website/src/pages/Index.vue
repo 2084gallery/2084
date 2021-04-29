@@ -1,6 +1,7 @@
 <template>
   <q-page>
     <section class="row q-px-lg">
+      <CustomMediaPlayer/>
       <div class="col-12 col-md-5 q-mr-auto">
       </div>
       <div class="col-12 col-md-5">
@@ -52,7 +53,6 @@
 
     </section>
     <div class="text-bold q-mt-auto footer-logo q-pa-md">2084 Gallery</div>
-    <CustomMediaPlayer></CustomMediaPlayer>
   </q-page>
 </template>
 
