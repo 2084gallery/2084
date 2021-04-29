@@ -28,8 +28,8 @@
         <div class="row">
           <div class="col-md-2">
             <div class="column">
-              <q-btn label="Explorer" flat padding="none" :ripple="false" no-caps @click="setTabs('explorer')" :class="{ 'active': isPanelActive('explorer') }"/>
-              <q-btn label="Contact" flat padding="none" :ripple="false" no-caps @click="setTabs('contact')" :class="{ 'active': isPanelActive('contact') }"/>
+              <q-btn class="app-btn" label="Explorer" flat padding="none" :ripple="false" no-caps @click="setTabs('explorer')" :class="{ 'active': isPanelActive('explorer') }"/>
+              <q-btn class="app-btn" label="Contact" flat padding="none" :ripple="false" no-caps @click="setTabs('contact')" :class="{ 'active': isPanelActive('contact') }"/>
             </div>
           </div>
           <div class="col-md">
@@ -105,16 +105,13 @@ export default {
 .app-btn::v-deep {
   transition: color 0.7s;
   color: #777777;
+
   &:hover {
     color: black;
   }
 
-  .q-focus-helper::before {
-    background: transparent;
-  }
-
   .q-focus-helper {
-    background: none
+    background: transparent !important;
   }
 }
 
