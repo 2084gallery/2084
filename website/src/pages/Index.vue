@@ -15,6 +15,7 @@
             padding="none"
             no-caps
             no-hover
+            :ripple="false"
             class="lang-btn q-mr-xl"
             :class="{'active': isLangActive(langOption.value) }"
             @click="setLang(langOption.value)"
@@ -36,17 +37,14 @@
               v-model="tab"
               animated
               swipeable
-              transition-prev="jump-up"
-              transition-next="jump-up"
+              transition-prev="fade"
+              transition-next="fade"
             >
-            <q-tab-panel name="explorer" class="q-pa-none panel-content" :class="{'panel-content-disabled': hover }">
-              <p style="column-count: 2" v-html="$t('explorer')"></p>
-            </q-tab-panel>
-
+              <q-tab-panel name="explorer" class="q-pa-none panel-content" :class="{'panel-content-disabled': hover }">
+                <p style="column-count: 2" v-html="$t('explorer')"></p>
+              </q-tab-panel>
               <q-tab-panel name="contact" class="q-pa-none">
-                <q-form></q-form>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis praesentium cumque magnam odio iure quidem, quod illum numquam possimus obcaecati commodi minima assumenda consectetur culpa fuga nulla ullam. In, libero.</p>
+                <ContactForm />
               </q-tab-panel>
             </q-tab-panels>
           </div>
@@ -61,11 +59,16 @@
 <script>
 export default {
   name: 'PageIndex',
+  components: {
+    ContactForm: () => import('components/ContactForm')
+  },
   data () {
     return {
       tab: 'explorer',
       lang: this.$i18n.locale,
       hover: false,
+      from: '',
+      message: '',
       langOptions: [
         { value: 'fr-fr', label: 'Français' },
         { value: 'en-us', label: 'English' },
@@ -97,10 +100,6 @@ export default {
   &:hover {
     color: black;
   }
-}
-
-.q-btn .q-hoverable:hover {
-  background: red;
 }
 
 body.desktop .q-hoverable:hover > .q-focus-helper {
