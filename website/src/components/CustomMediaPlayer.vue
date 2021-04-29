@@ -11,11 +11,10 @@
 </template>
 
 <script>
-import QMediaPlayer from './QMediaPlayer'
 export default {
   name: 'CustomMediaPlayer',
   components: {
-    QMediaPlayer
+    QMediaPlayer: () => import('components/QMediaPlayer')
   },
   data: () => ({
     currentVideoIndex: 0,
@@ -42,7 +41,6 @@ export default {
       this.videos[this.currentVideoIndex].src = `${this.videos[this.currentVideoIndex].src}#t=0.3`
       this.sources = [this.videos[this.currentVideoIndex]]
       this.currentVideoIndex++
-      console.log('in ?')
     },
     getNextSource (source, startTime) {
       // This function add the previous source current time
