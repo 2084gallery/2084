@@ -1,11 +1,11 @@
 <template>
   <q-form class="contact-form">
-    <q-input readonly placeholder="2084 Gallery" class="q-field__border-black">
+    <q-input readonly placeholder="2084 Gallery" class="input-border-black">
       <template #prepend>
         <span class="text-body2 text-black q-px-sm">To:</span>
       </template>
     </q-input>
-    <q-input type="email" name="from" v-model="from" placeholder="Enter your email address" class="q-field__border-black">
+    <q-input type="email" name="from" v-model="from" placeholder="Enter your email address" class="input-border-black">
       <template #prepend>
         <span class="text-body2 text-black q-px-sm">From:</span>
       </template>
@@ -41,7 +41,14 @@ export default {
   border: none !important; //then is focused remove default border
 }
 
-.q-field__border-black::v-deep .q-field__control::before {
-  border-bottom: 1px solid rgba(0, 0, 0, 1) !important;
+.input-border-black {
+  &::v-deep .q-field__control::before {
+    border-bottom: 1px solid rgba(0, 0, 0, 1) !important;
+  }
+
+  &::v-deep .q-field__control::after {
+    background: transparent;
+  }
 }
+
 </style>
