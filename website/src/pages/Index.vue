@@ -4,7 +4,7 @@
       <CustomMediaPlayer/>
       <div class="col-12 col-md-5 q-mr-auto">
       </div>
-      <div class="col-12 col-md-5">
+      <div class="col-12 col-md-5" style="z-index: 1;">
         <h1>2 0 8 4 <br>Gallery</h1>
         <div class="q-mb-md">
           <q-btn

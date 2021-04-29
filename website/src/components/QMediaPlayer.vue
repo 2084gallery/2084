@@ -38,21 +38,21 @@ export default {
   },
   methods: {
     mediaPlayerConfig () {
-      // Function launched when component is fully created
+      // This function is launched when the mediaPlayer component is fully created
+      this.$refs.media.setCurrentTime(0.1)
     },
     endAction () {
       // Launched when video come to an end
     },
     nextSource () {
       // Function for lauching the next source
+      this.$emit('next-source', this.$refs.media.currentTime())
     },
     avoidPausedByClick () {
       // By default when the user click on the video, it triggered a pause event
       // This function was made to avoid this behavior
+      this.nextSource()
       this.$refs.media.play()
-    },
-    weird () {
-      console.log('click')
     }
   }
 }
