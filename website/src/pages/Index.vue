@@ -63,6 +63,11 @@ export default {
     ContactForm: () => import('components/ContactForm'),
     CustomMediaPlayer: () => import('components/CustomMediaPlayer')
   },
+  meta: {
+    title: '2084 Gallery',
+    description: { name: 'description', content: '2084 Gallery resides in its commitment towards individuals invested body and soul in the discovery and preservation of our heritage' },
+    equiv: { 'http-equiv': 'Content-Type', content: 'text/html; charset=UTF-8' }
+  },
   data () {
     return {
       tab: 'explorer',
