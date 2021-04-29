@@ -26,7 +26,8 @@
 export default {
   name: '',
   data: () => ({
-
+    from: '',
+    message: ''
   })
 }
 </script>

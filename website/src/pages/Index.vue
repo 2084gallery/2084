@@ -2,10 +2,9 @@
   <q-page>
     <section class="row q-px-lg">
       <div class="col-12 col-md-5 q-mr-auto">
-
       </div>
       <div class="col-12 col-md-5">
-        <h1 class="text-bold">2084 <br>Gallery</h1>
+        <h1>2 0 8 4 <br>Gallery</h1>
         <div class="q-mb-md">
           <q-btn
             v-for="(langOption, i) in langOptions"
@@ -28,8 +27,8 @@
         <div class="row">
           <div class="col-md-2">
             <div class="column">
-              <q-btn label="Explorer" flat padding="none" :ripple="false" no-caps @click="setTabs('explorer')"/>
-              <q-btn label="Contact" flat padding="none" :ripple="false" no-caps @click="setTabs('contact')"/>
+              <q-btn label="Explorer" flat padding="none" :ripple="false" no-caps @click="setTabs('explorer')" :class="{ 'active': isPanelActive('explorer') }"/>
+              <q-btn label="Contact" flat padding="none" :ripple="false" no-caps @click="setTabs('contact')" :class="{ 'active': isPanelActive('contact') }"/>
             </div>
           </div>
           <div class="col-md">
@@ -52,7 +51,7 @@
       </div>
 
     </section>
-    <p class="text-bold q-mt-auto">2084 Gallery</p>
+    <div class="text-bold q-mt-auto footer-logo q-pa-md">2084 Gallery</div>
   </q-page>
 </template>
 
@@ -67,8 +66,6 @@ export default {
       tab: 'explorer',
       lang: this.$i18n.locale,
       hover: false,
-      from: '',
-      message: '',
       langOptions: [
         { value: 'fr-fr', label: 'Français' },
         { value: 'en-us', label: 'English' },
@@ -79,6 +76,9 @@ export default {
   methods: {
     isLangActive (langOption) {
       return this.lang === langOption
+    },
+    isPanelActive (tabName) {
+      return this.tab === tabName
     },
     setTabs (name) {
       this.tab = name
@@ -95,6 +95,10 @@ export default {
 }
 </script>
 <style lang="scss">
+.footer-logo {
+  position: absolute;
+  bottom: 0;
+}
 .q-btn {
   color: #777777;
   &:hover {

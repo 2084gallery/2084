@@ -23,20 +23,15 @@ $negative  : #C10015;
 $info      : #31CCEC;
 $warning   : #F2C037;
 
-// Example: Import Open Sans with multiple weights
-@import url('/typo/suisse-bp-intl-regular.otf');
-@import url('/typo/suisse-bp-intl-bold.otf');
-
 @font-face {
   font-family: 'suisse-bp-intl-regular';
-  src: url('/typo/suisse-bp-intl-regular.otf') format('otf');
+  src: url('/typo/suisse-bp-intl-regular.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'suisse-bp-intl-regular';
-  src: url('/typo/suisse-bp-intl-bold.otf') format('otf');
+  font-family: 'suisse-bp-intl-bold';
+  src: url('/typo/suisse-bp-intl-bold.otf') format('opentype');
   font-style: bold;
 }
 
-// Set the default font-family
 $typography-font-family : 'suisse-bp-intl-regular', sans-serif !default
