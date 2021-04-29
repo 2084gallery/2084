@@ -16,7 +16,7 @@
             no-caps
             no-hover
             :ripple="false"
-            class="lang-btn q-mr-xl"
+            class="app-btn q-mr-xl"
             :class="{'active': isLangActive(langOption.value) }"
             @click="setLang(langOption.value)"
             @mouseover="hover = true"
@@ -96,20 +96,26 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .footer-logo {
   position: absolute;
   bottom: 0;
 }
-.q-btn {
+
+.app-btn::v-deep {
+  transition: color 0.7s;
   color: #777777;
   &:hover {
     color: black;
   }
-}
 
-body.desktop .q-hoverable:hover > .q-focus-helper {
-  background: transparent;
+  .q-focus-helper::before {
+    background: transparent;
+  }
+
+  .q-focus-helper {
+    background: none
+  }
 }
 
 .q-btn.active {
@@ -118,7 +124,7 @@ body.desktop .q-hoverable:hover > .q-focus-helper {
 }
 
 .panel-content {
-  transition: color 1s;
+  transition: color 0.7s;
 }
 
 .panel-content-disabled {
