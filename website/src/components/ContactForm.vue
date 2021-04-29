@@ -1,18 +1,18 @@
 <template>
   <q-form class="contact-form">
-    <q-input readonly placeholder="2084 Gallery" class="input-border-black">
+    <q-input readonly :placeholder="$t('contactForm.to.placeholder')" class="input-border-black">
       <template #prepend>
-        <span class="text-body2 text-black q-px-sm">To:</span>
+        <span class="text-body2 text-black q-px-sm">{{$t('contactForm.to.label')}}</span>
       </template>
     </q-input>
-    <q-input type="email" name="from" v-model="from" placeholder="Enter your email address" class="input-border-black">
+    <q-input type="email" name="from" v-model="from" :placeholder="$t('contactForm.from.placeholder')" class="input-border-black">
       <template #prepend>
-        <span class="text-body2 text-black q-px-sm">From:</span>
+        <span class="text-body2 text-black q-px-sm">{{$t('contactForm.from.label')}}</span>
       </template>
     </q-input>
-    <q-input type="textarea" name="message" v-model="message" placeholder="Write here" borderless>
+    <q-input type="textarea" name="message" v-model="message" :placeholder="$t('contactForm.message.placeholder')" borderless>
       <template #prepend>
-        <span class="text-body2 text-black q-px-sm">Message:</span>
+        <span class="text-body2 text-black q-px-sm">{{$t('contactForm.message.label')}}</span>
       </template>
       <template>
         <div class="q-px-sm q-pb-md column">
