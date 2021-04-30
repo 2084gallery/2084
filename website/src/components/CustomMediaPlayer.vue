@@ -22,19 +22,25 @@ export default {
     videos: [
       {
         label: 'Virtual Mesh Hand',
-        src: require('assets/videos/virtual_mesh_hand.mp4'),
+        src: require('assets/videos/hand_mesh.mp4'),
         type: 'video/mp4',
         poster: ''
       },
       {
         label: 'Glass Hand',
-        src: require('assets/videos/glass_hand.mp4'),
+        src: require('assets/videos/hand_glass.mp4'),
         type: 'video/mp4',
         poster: ''
       },
       {
         label: 'Leather Hand',
-        src: require('assets/videos/leather_hand.mp4'),
+        src: require('assets/videos/hand_leather.mp4'),
+        type: 'video/mp4',
+        poster: ''
+      },
+      {
+        label: 'Iron Hand',
+        src: require('assets/videos/hand_iron.mp4'),
         type: 'video/mp4',
         poster: ''
       }
