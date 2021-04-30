@@ -31,6 +31,12 @@ export default {
         src: require('assets/videos/glass_hand.mp4'),
         type: 'video/mp4',
         poster: ''
+      },
+      {
+        label: 'Leather Hand',
+        src: require('assets/videos/leather_hand.mp4'),
+        type: 'video/mp4',
+        poster: ''
       }
     ]
   }),
