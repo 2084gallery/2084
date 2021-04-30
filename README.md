@@ -12,7 +12,7 @@ heroku git:remote -a website-2084-client-heroku
 ```
 **push explicit folder on heroku repository**
 ```bash
-  git subtree push --prefix website heroku master
+  git subtree push --prefix website heroku main
 ```
 ### BACK END
 **change remote**
@@ -21,7 +21,7 @@ heroku git:remote -a 2084-backend-heroku
 ```
 **push explicit folder on heroku repository**
 ```bash
-git subtree push --prefix backend heroku master
+git subtree push --prefix backend heroku main
 ```
 **Enjoy...**
 ## Start the app in development mode (hot-code reloading, error reporting, etc.)
