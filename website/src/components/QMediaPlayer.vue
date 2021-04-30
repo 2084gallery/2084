@@ -68,7 +68,7 @@ export default {
         this.nextSource()
         this.$refs.media.$el.classList.remove('fade-out')
         this.$refs.media.$el.classList.add('fade-in')
-      }, 1000)
+      }, 500)
     }
   }
 }
