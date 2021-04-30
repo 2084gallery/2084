@@ -5,9 +5,9 @@
   :muted="true"
   :show-big-play-button="false"
   :sources="sources"
+  :poster="sources.poster"
   @next-source="nextResource"
->
-</QMediaPlayer>
+/>
 </template>
 
 <script>
@@ -22,13 +22,15 @@ export default {
     videos: [
       {
         label: 'Virtual Mesh Hand',
-        src: require('assets/virtual_mesh_hand.mp4'),
-        type: 'video/mp4'
+        src: require('assets/videos/virtual_mesh_hand.mp4'),
+        type: 'video/mp4',
+        poster: ''
       },
       {
         label: 'Glass Hand',
-        src: require('assets/glass_hand.mp4'),
-        type: 'video/mp4'
+        src: require('assets/videos/glass_hand.mp4'),
+        type: 'video/mp4',
+        poster: ''
       }
     ]
   }),
