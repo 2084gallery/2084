@@ -5,7 +5,7 @@
       v-for="element in spinnerElements"
       :key="element.content"
       class="absolute"
-      :style="{ top: element.style.position.top, left: element.style.position.left, transition: element.style.transition }"
+      :style="{ top: element.position.top, left: element.position.left, transition: 'all 1s ease' }"
       >
         {{element.content}}
       </div>
@@ -21,26 +21,26 @@ export default {
     oldEl: {},
     renderComponent: true,
     spinnerElements: [
-      { content: '2', style: { position: { top: '40%', left: '35%' }, transition: 'all 2s ease' }, to: 'right' },
-      { content: '0', style: { position: { top: '40%', left: '65%' }, transition: 'all 2s ease' }, to: 'down' },
-      { content: '8', style: { position: { top: '60%', left: '65%' }, transition: 'all 2s ease' }, to: 'left' },
-      { content: '4', style: { position: { top: '60%', left: '35%' }, transition: 'all 2s ease' }, to: 'up' }
+      { content: '2', position: { top: '40%', left: '45%' }, to: 'right' },
+      { content: '0', position: { top: '40%', left: '55%' }, to: 'down' },
+      { content: '8', position: { top: '60%', left: '55%' }, to: 'left' },
+      { content: '4', position: { top: '60%', left: '45%' }, to: 'up' }
     ]
   }),
   methods: {
     settingElementsPosition () {
       for (; this.counter < this.spinnerElements.length; this.counter++) {
         if (this.counter === 3) {
-          this.spinnerElements[this.counter].style = this.oldEl.style
+          this.spinnerElements[this.counter].position = this.oldEl.position
           this.spinnerElements[this.counter].to = this.oldEl.to
           return
         }
-        this.spinnerElements[this.counter].style = this.spinnerElements[this.counter + 1].style
+        this.spinnerElements[this.counter].position = this.spinnerElements[this.counter + 1].position
         this.spinnerElements[this.counter].to = this.spinnerElements[this.counter + 1].to
       }
     },
     initiatingSpin (timer) {
-      this.oldEl.style = this.spinnerElements[0].style
+      this.oldEl.position = this.spinnerElements[0].position
       this.oldEl.to = this.spinnerElements[0].to
       this.counter = 0
       setTimeout(() => (
@@ -49,9 +49,10 @@ export default {
     }
   },
   mounted () {
-    this.initiatingSpin(1000)
+    this.initiatingSpin(2000)
   },
   updated () {
+    // TODO: add regroup before animation
     this.initiatingSpin(500)
   }
 }
@@ -67,7 +68,7 @@ export default {
   height: 100%;
   width: 100%;
   color: #777777;
-  font-size: 4rem;
+  font-size: 7rem;
   font-weight: 900;
 }
 </style>
