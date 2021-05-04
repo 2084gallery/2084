@@ -5,7 +5,7 @@
       v-for="element in spinnerElements"
       :key="element.content"
       class="absolute"
-      :style="{ top: element.position.top, left: element.position.left, transition: 'all 1s ease' }"
+      :style="{ top: element.position.top, left: element.position.left, transition: 'all 2s ease', color: color}"
       >
         {{element.content}}
       </div>
@@ -18,17 +18,19 @@ export default {
   data: () => ({
     spinning: true,
     counter: 0,
+    color: '#000',
     oldEl: {},
     renderComponent: true,
     spinnerElements: [
-      { content: '2', position: { top: '40%', left: '45%' }, to: 'right' },
-      { content: '0', position: { top: '40%', left: '55%' }, to: 'down' },
-      { content: '8', position: { top: '60%', left: '55%' }, to: 'left' },
-      { content: '4', position: { top: '60%', left: '45%' }, to: 'up' }
+      { content: '2', position: { top: '25%', left: '45%' }, to: 'right' },
+      { content: '0', position: { top: '25%', left: '50%' }, to: 'down' },
+      { content: '8', position: { top: '35%', left: '50%' }, to: 'left' },
+      { content: '4', position: { top: '35%', left: '45%' }, to: 'up' }
     ]
   }),
   methods: {
     settingElementsPosition () {
+      this.color = '#999999'
       for (; this.counter < this.spinnerElements.length; this.counter++) {
         if (this.counter === 3) {
           this.spinnerElements[this.counter].position = this.oldEl.position
@@ -53,7 +55,7 @@ export default {
   },
   updated () {
     // TODO: add regroup before animation
-    this.initiatingSpin(500)
+    this.initiatingSpin(1500)
   }
 }
 </script>
@@ -67,8 +69,9 @@ export default {
   transform: translate(-50%, -50%);
   height: 100%;
   width: 100%;
-  color: #777777;
-  font-size: 7rem;
+  font-size: 4rem;
   font-weight: 900;
+  color: #000;
 }
+
 </style>
