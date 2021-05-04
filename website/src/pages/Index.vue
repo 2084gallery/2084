@@ -17,8 +17,9 @@
             no-caps
             no-hover
             :ripple="false"
+            :fab-mini="false"
             class="app-btn q-mr-xl"
-            :class="{'active': isLangActive(langOption.value) }"
+            :class="{'lang-active': isLangActive(langOption.value) }"
             @click="setLang(langOption.value)"
             @mouseover="hover = true"
             @mouseout="hover = false"
@@ -29,8 +30,8 @@
         <div class="row">
           <div class="col-md-2">
             <div class="column">
-              <q-btn class="app-btn" label="Explorer" flat padding="none" :ripple="false" no-caps @click="setTabs('explorer')" :class="{ 'active': isPanelActive('explorer') }"/>
-              <q-btn class="app-btn" label="Contact" flat padding="none" :ripple="false" no-caps @click="setTabs('contact')" :class="{ 'active': isPanelActive('contact') }"/>
+              <q-btn class="app-btn" align="left" label="Explorer" flat padding="none" :ripple="false" no-caps @click="setTabs('explorer')" :class="{ 'active': isPanelActive('explorer') }"/>
+              <q-btn class="app-btn" align="left" label="Contact" flat padding="none" :ripple="false" no-caps @click="setTabs('contact')" :class="{ 'active': isPanelActive('contact') }"/>
             </div>
           </div>
           <div class="col-md">
@@ -104,6 +105,18 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@mixin underlined-active ($left, $width, $height, $bottom) {
+  content: '';
+  position:absolute;
+  left: $left;
+  bottom: $bottom;
+  width: $width;
+  height: $height;
+  background: #000;
+  border-width: 0 0 1px;
+  border-style: solid;
+}
+
 .footer-logo {
   position: absolute;
   bottom: 0;
@@ -123,8 +136,21 @@ export default {
 }
 
 .q-btn.active {
-  color: black;
   font-weight: bold;
+  position: relative;
+  color: #000;
+  &::after {
+    @include underlined-active(0, 50px, 1px, 5px)
+  }
+}
+
+.lang-active {
+  font-weight: bold;
+  position: relative;
+  color: #000;
+  &::after {
+    @include underlined-active(0, 15px, 1px, 5px)
+  }
 }
 
 .panel-content {
