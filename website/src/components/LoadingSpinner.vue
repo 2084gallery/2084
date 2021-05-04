@@ -1,5 +1,5 @@
 <template>
-  <div id="loading-spinner" v-show="spinning" @click="spinning = false">
+  <div id="loading-spinner" v-show="loading">
     <transition-group name="slide" tag="span">
       <div
       v-for="element in spinnerElements"
@@ -16,7 +16,7 @@
 export default {
   name: '',
   data: () => ({
-    spinning: true,
+    loading: true,
     counter: 0,
     color: '#000',
     oldEl: {},
@@ -48,10 +48,16 @@ export default {
       setTimeout(() => (
         this.settingElementsPosition()
       ), timer)
+    },
+    spinning () {
+      setTimeout(() => {
+        this.loading = false
+      }, 3000)
     }
   },
   mounted () {
-    this.initiatingSpin(2000)
+    this.initiatingSpin(0)
+    this.spinning()
   },
   updated () {
     // TODO: add regroup before animation
