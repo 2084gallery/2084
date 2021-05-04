@@ -2,6 +2,7 @@
   <q-page>
     <section class="row q-px-lg">
       <CustomMediaPlayer/>
+      <!-- <LoadingSpinner/> -->
       <div class="col-12 col-md-5 q-mr-auto">
       </div>
       <div class="col-12 col-md-5" style="z-index: 1;">
@@ -61,6 +62,7 @@ export default {
   name: 'PageIndex',
   components: {
     ContactForm: () => import('components/ContactForm'),
+    // LoadingSpinner: () => import('components/LoadingSpinner'),
     CustomMediaPlayer: () => import('components/CustomMediaPlayer')
   },
   meta: {
