@@ -186,16 +186,4 @@ h1 {
     margin-bottom: 0;
   }
 }
-$indexes: (
-    0,
-    1,
-    2,
-    3
-);
-
-@each $index in $indexes {
-  .z-#{$index} {
-  z-index: $index;
-  };
-}
 </style>
