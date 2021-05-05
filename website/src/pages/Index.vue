@@ -23,24 +23,7 @@
             </div>
           </div>
           <div class="col-9 col-md-6">
-            <div class="q-mb-md">
-              <q-btn
-                v-for="(langOption, i) in langOptions"
-                :key="i"
-                :label="langOption.label"
-                flat
-                padding="none"
-                no-caps
-                no-hover
-                :ripple="false"
-                :fab-mini="false"
-                class="app-btn q-mr-md-xl q-mr-lg"
-                :class="{'lang-active': isLangActive(langOption.value) }"
-                @click="setLang(langOption.value)"
-                @mouseover="hover = true"
-                @mouseout="hover = false"
-              />
-            </div>
+              <LangSwitcher class="q-mb-md" @mouseover="hover = true" @mouseout="hover = false"/>
             <div class="col-12 col-md-6 q-ml-auto">
               <div class="row">
                 <div class="col-md">
@@ -64,8 +47,9 @@
           </div>
         </div>
       </div>
+      <Footer class="footer-logo text-bold q-mt-auto q-pa-md"/>
     </section>
-    <div class="text-bold q-mt-auto footer-logo q-pa-md">2084 Gallery</div>
+
   </q-page>
 </template>
 
@@ -74,8 +58,10 @@ export default {
   name: 'PageIndex',
   components: {
     ContactForm: () => import('components/ContactForm'),
+    CustomMediaPlayer: () => import('components/CustomMediaPlayer'),
+    Footer: () => import('components/Footer'),
+    LangSwitcher: () => import('components/LangSwitcher')
     // LoadingSpinner: () => import('components/LoadingSpinner'),
-    CustomMediaPlayer: () => import('components/CustomMediaPlayer')
   },
   meta: {
     title: '2084 Gallery',
@@ -85,83 +71,24 @@ export default {
   data () {
     return {
       tab: 'explorer',
-      lang: this.$i18n.locale,
-      hover: false,
-      langOptions: [
-        { value: 'fr-fr', label: 'Français' },
-        { value: 'en-us', label: 'English' },
-        { value: 'ch-ch', label: '普通' }
-      ]
+      hover: false
     }
   },
   methods: {
-    isLangActive (langOption) {
-      return this.lang === langOption
-    },
     isPanelActive (tabName) {
       return this.tab === tabName
     },
     setTabs (name) {
       this.tab = name
-    },
-    setLang (lang) {
-      this.lang = lang
-    }
-  },
-  watch: {
-    lang (lang) {
-      this.$i18n.locale = lang
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-@mixin underlined-active ($direction, $size-direction, $width, $height, $bottom) {
-  content: '';
-  position: absolute;
-  #{$direction}: $size-direction;
-  bottom: $bottom;
-  width: $width;
-  height: $height;
-  background: #000;
-  border-width: 0 0 1px;
-  border-style: solid;
-}
 
 .footer-logo {
   position: absolute;
   bottom: 0;
-}
-
-.app-btn::v-deep {
-  transition: color 0.7s;
-  color: #777777;
-
-  &:hover {
-    color: black;
-  }
-
-  .q-focus-helper {
-    background: transparent !important;
-  }
-}
-
-.q-btn.active {
-  font-weight: bold;
-  position: relative;
-  color: #000;
-  &::after {
-    @include underlined-active('right', 0, 50px, 1px, 5px)
-  }
-}
-
-.lang-active {
-  font-weight: bold;
-  position: relative;
-  color: #000;
-  &::after {
-    @include underlined-active('left', 0, 15px, 1px, 5px)
-  }
 }
 
 .panel-content {

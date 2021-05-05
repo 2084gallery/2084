@@ -1,1 +1,44 @@
 // app global css in SCSS form
+
+@mixin underlined-active ($direction, $size-direction, $width, $height, $bottom) {
+  content: '';
+  position: absolute;
+  #{$direction}: $size-direction;
+  bottom: $bottom;
+  width: $width;
+  height: $height;
+  background: #000;
+  border-width: 0 0 1px;
+  border-style: solid;
+}
+
+.app-btn {
+  transition: color 0.7s;
+  color: #777777;
+
+  &:hover {
+    color: black;
+  }
+
+  .q-focus-helper {
+    background: transparent !important;
+  }
+
+  .active {
+    font-weight: bold;
+    position: relative;
+    color: #000;
+    &::after {
+      @include underlined-active('right', 0, 50px, 1px, 5px)
+    }
+  }
+}
+
+.lang-active {
+  font-weight: bold;
+  position: relative;
+  color: #000;
+  &::after {
+    @include underlined-active('left', 0, 15px, 1px, 5px)
+  }
+}
