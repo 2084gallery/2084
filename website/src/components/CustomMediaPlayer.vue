@@ -82,7 +82,14 @@ export default {
 video{
   z-index: 0;
   position: absolute;
-  width: 60%;
+  top: 20%;
+  width: 50%;
   left: 0%;
+  max-height: 80%;
+  @media screen and (max-width: $breakpoint-sm) {
+    display: block;
+    position: inherit;
+    width: 100%;
+  }
 }
 </style>
