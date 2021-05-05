@@ -75,7 +75,7 @@
           </div>
         </div>
       </div>
-      <Footer class="footer-logo q-mt-auto q-pa-md"/>
+      <Footer class="footer-logo q-mt-auto q-pa-md mobile-hide"/>
     </section>
   </q-page>
 </template>

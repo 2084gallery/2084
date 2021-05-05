@@ -10,7 +10,7 @@
       no-hover
       :ripple="false"
       :fab-mini="false"
-      class="app-btn q-mr-xl"
+      class="app-btn"
       :class="{'lang-active': isLangActive(langOption.value) }"
       @click="setLang(langOption.value)"
       @mouseover="$emit('mouseover')"
@@ -47,4 +47,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.app-btn {
+  margin-right: map-get($spaces, 'md', 'x');
+  @media screen and(min-width: $breakpoint-md) {
+    margin-right: map-get($spaces, 'xl', 'x');
+  }
+}
 </style>
