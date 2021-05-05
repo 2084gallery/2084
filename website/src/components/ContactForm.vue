@@ -2,17 +2,17 @@
   <q-form class="contact-form">
     <q-input readonly :placeholder="$t('contactForm.to.placeholder')" dense class="input-border-black">
       <template #prepend>
-        <span class="text-body2 text-black q-pl-md">{{$t('contactForm.to.label')}} :</span>
+        <span class="text-normal text-black q-pl-md">{{$t('contactForm.to.label')}} :</span>
       </template>
     </q-input>
     <q-input type="email" name="from" v-model="from" :placeholder="$t('contactForm.from.placeholder')" dense class="input-border-black">
       <template #prepend class="q-pr-none">
-        <span class="text-body2 text-black q-pl-md">{{$t('contactForm.from.label')}} :</span>
+        <span class="text-normal text-black q-pl-md">{{$t('contactForm.from.label')}} :</span>
       </template>
     </q-input>
     <q-input type="textarea" name="message" dense class="q-pb-none" v-model="message" :placeholder="$t('contactForm.message.placeholder')" borderless>
       <template #prepend>
-        <span class="text-body2 text-black q-pl-md">{{$t('contactForm.message.label')}} :</span>
+        <span class="text-normal text-black q-pl-md">{{$t('contactForm.message.label')}} :</span>
       </template>
       <template>
         <div class="q-pa-md column">

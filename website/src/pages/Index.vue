@@ -8,7 +8,7 @@
             <h1 v-if="!$q.platform.is.desktop" class="q-mx-md-none">2 0 8 4 <br>Gallery</h1>
           </div>
           <div class="col-md-6">
-            <h1 v-if="$q.platform.is.desktop" class="q-mx-auto q-mx-md-none">2 0 8 4 <br>Gallery</h1>
+            <h1 v-if="$q.platform.is.desktop" class="q-mx-auto q-mx-md-none animated fadeInRight smoother">2 0 8 4 <br>Gallery</h1>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
           <div class="col-3 col-md-2">
             <div class="column items-center q-mr-xl q-mr-sm-none">
               <q-btn
-                class="app-btn q-ml-md-xl"
+                class="app-btn q-ml-md-xl animated delay-4s fadeIn smoother"
                 align="right"
                 label="Explorer"
                 flat
@@ -27,7 +27,7 @@
                 :ripple="false"
                 no-caps
                 @click="setTabs('explorer')"
-                :class="{ 'btn-active': isPanelActive('explorer') }"
+                :class="{ 'btn-active': isPanelActive('explorer') || isPanelActive('quote') }"
               />
               <q-btn
                 class="app-btn q-ml-md-xl"
@@ -37,11 +37,14 @@
                 padding="none"
                 :ripple="false" no-caps
                 @click="setTabs('contact')"
-                :class="{ 'btn-active': isPanelActive('contact') }"/>
+                :class="{ 'btn-active': isPanelActive('contact') }"
+                v-if="!isPanelActive('quote')"
+              />
+
             </div>
           </div>
           <div class="col-9 col-md-6">
-              <LangSwitcher class="q-mb-md" @mouseover="hover = true" @mouseout="hover = false"/>
+            <LangSwitcher class="q-mb-md" @mouseover="hover = true" @mouseout="hover = false" v-if="!isPanelActive('quote')"/>
             <div class="col-12 col-md-6 q-ml-auto">
               <div class="row">
                 <div class="col-md">
@@ -52,6 +55,13 @@
                     transition-prev="fade"
                     transition-next="fade"
                   >
+                    <q-tab-panel name="quote" class="q-pa-none panel-content animated delay-5s fadeIn smoother">
+                      <div class="text-grey">
+                        <div>“Citation main”</div>
+                        <div>“Hand quote”</div>
+                        <div>“手价”</div>
+                      </div>
+                    </q-tab-panel>
                     <q-tab-panel name="explorer" class="q-pa-none panel-content" :class="{'panel-content-disabled': hover }">
                       <p class="text-content" v-html="$t('explorer')"></p>
                     </q-tab-panel>
@@ -87,7 +97,7 @@ export default {
   },
   data () {
     return {
-      tab: 'explorer',
+      tab: 'quote',
       hover: false
     }
   },

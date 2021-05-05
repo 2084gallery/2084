@@ -13,6 +13,8 @@
       class="app-btn q-mr-xl"
       :class="{'lang-active': isLangActive(langOption.value) }"
       @click="setLang(langOption.value)"
+      @mouseover="$emit('mouseover')"
+      @mouseout="$emit('mouseout')"
     />
   </div>
 </template>
