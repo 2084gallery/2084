@@ -90,6 +90,7 @@ video{
     display: block;
     position: inherit;
     width: 100%;
+    max-height: 100%;
   }
 }
 </style>
