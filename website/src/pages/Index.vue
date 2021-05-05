@@ -18,8 +18,26 @@
           <div class="col-md-4"></div>
           <div class="col-3 col-md-2">
             <div class="column items-center q-mr-xl q-mr-sm-none">
-              <q-btn class="app-btn q-ml-md-xl" align="right" label="Explorer" flat padding="none" :ripple="false" no-caps @click="setTabs('explorer')" :class="{ 'active': isPanelActive('explorer') }"/>
-              <q-btn class="app-btn q-ml-md-xl" align="right" label="Contact" flat padding="none" :ripple="false" no-caps @click="setTabs('contact')" :class="{ 'active': isPanelActive('contact') }"/>
+              <q-btn
+                class="app-btn q-ml-md-xl"
+                align="right"
+                label="Explorer"
+                flat
+                padding="none"
+                :ripple="false"
+                no-caps
+                @click="setTabs('explorer')"
+                :class="{ 'btn-active': isPanelActive('explorer') }"
+              />
+              <q-btn
+                class="app-btn q-ml-md-xl"
+                align="right"
+                label="Contact"
+                flat
+                padding="none"
+                :ripple="false" no-caps
+                @click="setTabs('contact')"
+                :class="{ 'btn-active': isPanelActive('contact') }"/>
             </div>
           </div>
           <div class="col-9 col-md-6">
@@ -47,9 +65,8 @@
           </div>
         </div>
       </div>
-      <Footer class="footer-logo text-bold q-mt-auto q-pa-md"/>
+      <Footer class="footer-logo q-mt-auto q-pa-md"/>
     </section>
-
   </q-page>
 </template>
 
@@ -93,6 +110,7 @@ export default {
 
 .panel-content {
   transition: color 0.7s;
+  max-height: 300px;
 }
 
 .panel-content-disabled {
@@ -108,7 +126,9 @@ export default {
 }
 
 h1 {
+  font-size: 120px;
   @media screen and (max-width: $breakpoint-sm) {
+    font-size: 108px;
     margin-top: 1.3rem;
     margin-bottom: 0;
   }

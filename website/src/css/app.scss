@@ -23,22 +23,29 @@
   .q-focus-helper {
     background: transparent !important;
   }
+}
 
-  .active {
-    font-weight: bold;
-    position: relative;
-    color: #000;
-    &::after {
-      @include underlined-active('right', 0, 50px, 1px, 5px)
-    }
+.btn-active {
+  position: relative;
+  color: #000;
+  &::after {
+    @include underlined-active('right', 0, 50px, 1px, 5px)
   }
 }
 
 .lang-active {
-  font-weight: bold;
   position: relative;
   color: #000;
   &::after {
     @include underlined-active('left', 0, 15px, 1px, 5px)
+  }
+}
+
+body {
+  @media screen and(max-width: $breakpoint-md) {
+    font-size: 15px;
+    .q-btn {
+      font-size: 15px;
+    }
   }
 }
