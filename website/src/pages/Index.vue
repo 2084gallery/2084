@@ -1,58 +1,69 @@
 <template>
   <q-page>
+    <!-- <LoadingSpinner/> -->
     <section class="row q-px-lg">
-      <CustomMediaPlayer/>
-      <!-- <LoadingSpinner/> -->
-      <div class="col-12 col-md-5 q-mr-auto">
-      </div>
-      <div class="col-12 col-md-5" style="z-index: 1;">
-        <h1>2 0 8 4 <br>Gallery</h1>
-        <div class="q-mb-md">
-          <q-btn
-            v-for="(langOption, i) in langOptions"
-            :key="i"
-            :label="langOption.label"
-            flat
-            padding="none"
-            no-caps
-            no-hover
-            :ripple="false"
-            :fab-mini="false"
-            class="app-btn q-mr-xl"
-            :class="{'lang-active': isLangActive(langOption.value) }"
-            @click="setLang(langOption.value)"
-            @mouseover="hover = true"
-            @mouseout="hover = false"
-          />
+      <div class="col-12 z-999">
+        <div class="row">
+          <div class="col-md-6 col-12 text-center">
+            <h1 v-if="!$q.platform.is.desktop" class="q-mx-md-none">2 0 8 4 <br>Gallery</h1>
+          </div>
+          <div class="col-md-6">
+            <h1 v-if="$q.platform.is.desktop" class="q-mx-auto q-mx-md-none">2 0 8 4 <br>Gallery</h1>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-md-6 q-ml-auto">
+      <CustomMediaPlayer/>
+      <div class="col-12 z-999">
         <div class="row">
-          <div class="col-md-2">
-            <div class="column">
-              <q-btn class="app-btn" align="left" label="Explorer" flat padding="none" :ripple="false" no-caps @click="setTabs('explorer')" :class="{ 'active': isPanelActive('explorer') }"/>
-              <q-btn class="app-btn" align="left" label="Contact" flat padding="none" :ripple="false" no-caps @click="setTabs('contact')" :class="{ 'active': isPanelActive('contact') }"/>
+          <div class="col-md-4"></div>
+          <div class="col-3 col-md-2">
+            <div class="column items-center q-mr-xl q-mr-sm-none">
+              <q-btn class="app-btn q-ml-md-xl" align="right" label="Explorer" flat padding="none" :ripple="false" no-caps @click="setTabs('explorer')" :class="{ 'active': isPanelActive('explorer') }"/>
+              <q-btn class="app-btn q-ml-md-xl" align="right" label="Contact" flat padding="none" :ripple="false" no-caps @click="setTabs('contact')" :class="{ 'active': isPanelActive('contact') }"/>
             </div>
           </div>
-          <div class="col-md">
-            <q-tab-panels
-              v-model="tab"
-              animated
-              swipeable
-              transition-prev="fade"
-              transition-next="fade"
-            >
-              <q-tab-panel name="explorer" class="q-pa-none panel-content" :class="{'panel-content-disabled': hover }">
-                <p style="column-count: 2" v-html="$t('explorer')"></p>
-              </q-tab-panel>
-              <q-tab-panel name="contact" class="q-pa-none">
-                <ContactForm />
-              </q-tab-panel>
-            </q-tab-panels>
+          <div class="col-9 col-md-6">
+            <div class="q-mb-md">
+              <q-btn
+                v-for="(langOption, i) in langOptions"
+                :key="i"
+                :label="langOption.label"
+                flat
+                padding="none"
+                no-caps
+                no-hover
+                :ripple="false"
+                :fab-mini="false"
+                class="app-btn q-mr-md-xl q-mr-lg"
+                :class="{'lang-active': isLangActive(langOption.value) }"
+                @click="setLang(langOption.value)"
+                @mouseover="hover = true"
+                @mouseout="hover = false"
+              />
+            </div>
+            <div class="col-12 col-md-6 q-ml-auto">
+              <div class="row">
+                <div class="col-md">
+                  <q-tab-panels
+                    v-model="tab"
+                    animated
+                    swipeable
+                    transition-prev="fade"
+                    transition-next="fade"
+                  >
+                    <q-tab-panel name="explorer" class="q-pa-none panel-content" :class="{'panel-content-disabled': hover }">
+                      <p class="text-content" v-html="$t('explorer')"></p>
+                    </q-tab-panel>
+                    <q-tab-panel name="contact" class="q-pa-none">
+                      <ContactForm />
+                    </q-tab-panel>
+                  </q-tab-panels>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
     </section>
     <div class="text-bold q-mt-auto footer-logo q-pa-md">2084 Gallery</div>
   </q-page>
@@ -105,10 +116,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@mixin underlined-active ($left, $width, $height, $bottom) {
+@mixin underlined-active ($direction, $size-direction, $width, $height, $bottom) {
   content: '';
-  position:absolute;
-  left: $left;
+  position: absolute;
+  #{$direction}: $size-direction;
   bottom: $bottom;
   width: $width;
   height: $height;
@@ -140,7 +151,7 @@ export default {
   position: relative;
   color: #000;
   &::after {
-    @include underlined-active(0, 50px, 1px, 5px)
+    @include underlined-active('right', 0, 50px, 1px, 5px)
   }
 }
 
@@ -149,7 +160,7 @@ export default {
   position: relative;
   color: #000;
   &::after {
-    @include underlined-active(0, 15px, 1px, 5px)
+    @include underlined-active('left', 0, 15px, 1px, 5px)
   }
 }
 
@@ -159,5 +170,33 @@ export default {
 
 .panel-content-disabled {
   color: #999999;
+}
+
+.text-content {
+  column-count: 1;
+  @media screen and(min-width: $breakpoint-md) {
+    column-count: 2;
+    padding-right: 5%;
+  }
+}
+
+h1 {
+  @media screen and (max-width: $breakpoint-sm) {
+    margin-top: 1.3rem;
+    margin-bottom: 0;
+  }
+}
+$indexes: (
+    0,
+    1,
+    2,
+    3,
+    999
+);
+@each $index in $indexes {
+  .z-#{$index} {
+  z-index: $index;
+}
+
 }
 </style>
