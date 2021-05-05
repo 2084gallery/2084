@@ -2,7 +2,7 @@
   <q-page>
     <!-- <LoadingSpinner/> -->
     <section class="row q-px-lg">
-      <div class="col-12 z-999">
+      <div class="col-12">
         <div class="row">
           <div class="col-md-6 col-12 text-center">
             <h1 v-if="!$q.platform.is.desktop" class="q-mx-md-none">2 0 8 4 <br>Gallery</h1>
@@ -13,7 +13,7 @@
         </div>
       </div>
       <CustomMediaPlayer/>
-      <div class="col-12 z-999">
+      <div class="col-12">
         <div class="row">
           <div class="col-md-4"></div>
           <div class="col-3 col-md-2">
@@ -190,13 +190,12 @@ $indexes: (
     0,
     1,
     2,
-    3,
-    999
+    3
 );
+
 @each $index in $indexes {
   .z-#{$index} {
   z-index: $index;
-}
-
+  };
 }
 </style>
