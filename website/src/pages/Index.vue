@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="desktop-fullscreen">
     <!-- <LoadingSpinner/> -->
     <section class="row q-px-lg">
       <div class="col-12">
@@ -51,7 +51,7 @@
                   <q-tab-panels
                     v-model="tab"
                     animated
-                    swipeable
+                    :swipeable="false"
                     transition-prev="fade"
                     transition-next="fade"
                   >
@@ -112,6 +112,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.desktop-fullscreen {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+}
 
 .footer-logo {
   position: absolute;
