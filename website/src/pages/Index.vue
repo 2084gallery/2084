@@ -7,7 +7,11 @@
     >
       <LoadingSpinner :loading="loading"/>
     </transition>
-    <section v-else class="row q-px-lg">
+    <transition
+      v-else
+      enter-active-class="animated fadeIn smooth"
+    >
+    <section class="row q-px-lg">
       <div class="col-12">
         <div class="row">
           <div class="col-md-6 col-12 text-center c-mobile-higher-index">
@@ -50,15 +54,15 @@
             </div>
           </div>
           <div class="col-9 col-md-6">
-            <LangSwitcher class="q-mb-md" @mouseover="hover = true" @mouseout="hover = false" v-if="!isPanelActive('quote')"/>
+            <LangSwitcher class="q-mb-md"
+              @mouseover="hover = true"
+              @mouseout="hover = false"
+              v-if="!isPanelActive('quote')"
+            />
             <div class="col-12 col-md-6 q-ml-auto">
               <div class="row">
                 <div class="col-md">
-                  <custom-tabs-panel :hover="hover" :tab="tab">
-                    <template v-slot:contact-form>
-                      <ContactForm/>
-                    </template>
-                  </custom-tabs-panel>
+                  <CustomTabsPanel :hover="hover" :tab="tab"/>
                 </div>
               </div>
             </div>
@@ -67,6 +71,7 @@
       </div>
       <Footer class="footer-logo q-mt-auto q-pa-md gt-md"/>
     </section>
+    </transition>
   </q-page>
 </template>
 
@@ -77,7 +82,6 @@ export default {
     CustomMediaPlayer: () => import('components/CustomMediaPlayer'),
     LangSwitcher: () => import('components/LangSwitcher'),
     CustomTabsPanel: () => import('components/CustomTabsPanel'),
-    ContactForm: () => import('components/ContactForm'),
     Footer: () => import('components/Footer'),
     LoadingSpinner: () => import('components/LoadingSpinner')
   },

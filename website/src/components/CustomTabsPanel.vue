@@ -17,13 +17,16 @@
       <p class="text-content" v-html="$t('explorer')"></p>
     </q-tab-panel>
     <q-tab-panel name="contact" class="q-pa-none">
-      <slot name="contact-form"></slot>
+      <ContactForm/>
     </q-tab-panel>
   </q-tab-panels>
 </template>
 <script>
 export default {
   name: 'CustomTabsPanel',
+  components: {
+    ContactForm: () => import('components/ContactForm')
+  },
   props: {
     hover: { type: Boolean },
     tab: { type: String }
