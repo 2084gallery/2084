@@ -53,17 +53,17 @@ export default {
     if (!this.$q.platform.is.desktop) {
       console.log('mobile')
       this.spinnerElements.push(
-        { content: '2', position: { top: '30%', left: '35%' }, to: 'right' },
-        { content: '0', position: { top: '30%', left: '55%' }, to: 'down' },
-        { content: '8', position: { top: '40%', left: '55%' }, to: 'left' },
-        { content: '4', position: { top: '40%', left: '35%' }, to: 'up' }
+        { content: '2', position: { top: '40%', left: '35%' }, to: 'right' },
+        { content: '0', position: { top: '40%', left: '55%' }, to: 'down' },
+        { content: '8', position: { top: '50%', left: '55%' }, to: 'left' },
+        { content: '4', position: { top: '50%', left: '35%' }, to: 'up' }
       )
     } else {
       this.spinnerElements.push(
-        { content: '2', position: { top: '25%', left: '45%' }, to: 'right' },
-        { content: '0', position: { top: '25%', left: '50%' }, to: 'down' },
-        { content: '8', position: { top: '35%', left: '50%' }, to: 'left' },
-        { content: '4', position: { top: '35%', left: '45%' }, to: 'up' })
+        { content: '2', position: { top: '40%', left: '45%' }, to: 'right' },
+        { content: '0', position: { top: '40%', left: '50%' }, to: 'down' },
+        { content: '8', position: { top: '50%', left: '50%' }, to: 'left' },
+        { content: '4', position: { top: '50%', left: '45%' }, to: 'up' })
     }
     this.initiatingSpin(1000)
   },
