@@ -15,18 +15,17 @@
 <script>
 export default {
   name: '',
+  props: {
+    loading: {
+      type: Boolean
+    }
+  },
   data: () => ({
-    loading: true,
     counter: 0,
     color: '#000',
     oldEl: {},
     renderComponent: true,
-    spinnerElements: [
-      { content: '2', position: { top: '25%', left: '45%' }, to: 'right' },
-      { content: '0', position: { top: '25%', left: '50%' }, to: 'down' },
-      { content: '8', position: { top: '35%', left: '50%' }, to: 'left' },
-      { content: '4', position: { top: '35%', left: '45%' }, to: 'up' }
-    ]
+    spinnerElements: []
   }),
   methods: {
     settingElementsPosition () {
@@ -48,20 +47,28 @@ export default {
       setTimeout(() => (
         this.settingElementsPosition()
       ), timer)
-    },
-    spinning () {
-      setTimeout(() => {
-        this.loading = false
-      }, 3000)
     }
   },
   mounted () {
-    this.initiatingSpin(0)
-    this.spinning()
+    if (!this.$q.platform.is.desktop) {
+      console.log('mobile')
+      this.spinnerElements.push(
+        { content: '2', position: { top: '30%', left: '35%' }, to: 'right' },
+        { content: '0', position: { top: '30%', left: '55%' }, to: 'down' },
+        { content: '8', position: { top: '40%', left: '55%' }, to: 'left' },
+        { content: '4', position: { top: '40%', left: '35%' }, to: 'up' }
+      )
+    } else {
+      this.spinnerElements.push(
+        { content: '2', position: { top: '25%', left: '45%' }, to: 'right' },
+        { content: '0', position: { top: '25%', left: '50%' }, to: 'down' },
+        { content: '8', position: { top: '35%', left: '50%' }, to: 'left' },
+        { content: '4', position: { top: '35%', left: '45%' }, to: 'up' })
+    }
+    this.initiatingSpin(1000)
   },
   updated () {
-    // TODO: add regroup before animation
-    this.initiatingSpin(1500)
+    this.initiatingSpin(2000)
   }
 }
 </script>

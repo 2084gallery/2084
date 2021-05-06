@@ -1,11 +1,17 @@
 <template>
   <q-page class="desktop-fullscreen">
-    <!-- <LoadingSpinner/> -->
-    <section class="row q-px-lg">
+    <transition
+      v-if="loading"
+      enter-active-class="animated fadeIn smooth"
+      leave-active-class="animated fadeOut smooth"
+    >
+      <LoadingSpinner :loading="loading"/>
+    </transition>
+    <section v-else class="row q-px-lg">
       <div class="col-12">
         <div class="row">
           <div class="col-md-6 col-12 text-center c-mobile-higher-index">
-            <h1 v-if="!$q.platform.is.desktop" class="q-mx-md-none">2 0 8 4 <br>Gallery</h1>
+            <h1 v-if="!$q.platform.is.desktop" class="q-mx-md-none animated fadeIn smoother">2 0 8 4 <br>Gallery</h1>
           </div>
           <div class="col-md-6">
             <h1 v-if="$q.platform.is.desktop" class="q-mx-auto q-mx-md-none animated fadeInRight smoother">2 0 8 4 <br>Gallery</h1>
@@ -72,8 +78,8 @@ export default {
     LangSwitcher: () => import('components/LangSwitcher'),
     CustomTabsPanel: () => import('components/CustomTabsPanel'),
     ContactForm: () => import('components/ContactForm'),
-    Footer: () => import('components/Footer')
-    // LoadingSpinner: () => import('components/LoadingSpinner'),
+    Footer: () => import('components/Footer'),
+    LoadingSpinner: () => import('components/LoadingSpinner')
   },
   meta: {
     title: '2084 Gallery',
@@ -83,7 +89,8 @@ export default {
   data () {
     return {
       tab: 'quote',
-      hover: false
+      hover: false,
+      loading: true
     }
   },
   methods: {
@@ -92,7 +99,15 @@ export default {
     },
     setTabs (name) {
       this.tab = name
+    },
+    loader () {
+      setTimeout(() => {
+        this.loading = false
+      }, 5000)
     }
+  },
+  created () {
+    this.loader()
   }
 }
 </script>
