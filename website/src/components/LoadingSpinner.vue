@@ -50,21 +50,13 @@ export default {
     }
   },
   mounted () {
-    if (!this.$q.platform.is.desktop) {
-      console.log('mobile')
-      this.spinnerElements.push(
-        { content: '2', position: { top: '40%', left: '35%' }, to: 'right' },
-        { content: '0', position: { top: '40%', left: '55%' }, to: 'down' },
-        { content: '8', position: { top: '50%', left: '55%' }, to: 'left' },
-        { content: '4', position: { top: '50%', left: '35%' }, to: 'up' }
-      )
-    } else {
-      this.spinnerElements.push(
-        { content: '2', position: { top: '40%', left: '45%' }, to: 'right' },
-        { content: '0', position: { top: '40%', left: '50%' }, to: 'down' },
-        { content: '8', position: { top: '50%', left: '50%' }, to: 'left' },
-        { content: '4', position: { top: '50%', left: '45%' }, to: 'up' })
-    }
+    const leftPositions = (!this.$q.platform.is.desktop) ? ['35%', '55%'] : ['45%', '50%']
+    this.spinnerElements.push(
+      { content: '2', position: { top: '40%', left: leftPositions[0] }, to: 'right' },
+      { content: '0', position: { top: '40%', left: leftPositions[1] }, to: 'down' },
+      { content: '8', position: { top: '50%', left: leftPositions[1] }, to: 'left' },
+      { content: '4', position: { top: '50%', left: leftPositions[0] }, to: 'up' }
+    )
     this.initiatingSpin(1000)
   },
   updated () {
