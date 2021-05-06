@@ -48,27 +48,11 @@
             <div class="col-12 col-md-6 q-ml-auto">
               <div class="row">
                 <div class="col-md">
-                  <q-tab-panels
-                    v-model="tab"
-                    animated
-                    :swipeable="false"
-                    transition-prev="fade"
-                    transition-next="fade"
-                  >
-                    <q-tab-panel name="quote" class="q-pa-none panel-content animated delay-5s fadeIn smoother">
-                      <div class="text-grey">
-                        <div>“Citation main”</div>
-                        <div>“Hand quote”</div>
-                        <div>“手价”</div>
-                      </div>
-                    </q-tab-panel>
-                    <q-tab-panel name="explorer" class="q-pa-none panel-content" :class="{'panel-content-disabled': hover }">
-                      <p class="text-content" v-html="$t('explorer')"></p>
-                    </q-tab-panel>
-                    <q-tab-panel name="contact" class="q-pa-none">
-                      <ContactForm />
-                    </q-tab-panel>
-                  </q-tab-panels>
+                  <custom-tabs-panel :hover="hover" :tab="tab">
+                    <template v-slot:contact-form>
+                      <ContactForm/>
+                    </template>
+                  </custom-tabs-panel>
                 </div>
               </div>
             </div>
@@ -84,10 +68,11 @@
 export default {
   name: 'PageIndex',
   components: {
-    ContactForm: () => import('components/ContactForm'),
     CustomMediaPlayer: () => import('components/CustomMediaPlayer'),
-    Footer: () => import('components/Footer'),
-    LangSwitcher: () => import('components/LangSwitcher')
+    LangSwitcher: () => import('components/LangSwitcher'),
+    CustomTabsPanel: () => import('components/CustomTabsPanel'),
+    ContactForm: () => import('components/ContactForm'),
+    Footer: () => import('components/Footer')
     // LoadingSpinner: () => import('components/LoadingSpinner'),
   },
   meta: {
