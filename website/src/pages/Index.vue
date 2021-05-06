@@ -11,10 +11,10 @@
       <div class="col-12">
         <div class="row">
           <div class="col-md-6 col-12 text-center c-mobile-higher-index">
-            <h1 v-if="!$q.platform.is.desktop" class="q-mx-md-none animated fadeIn smoother">2 0 8 4 <br>Gallery</h1>
+            <h1 class="q-mx-md-none animated fadeIn smoother lt-lg">2 0 8 4 <br>Gallery</h1>
           </div>
           <div class="col-md-6">
-            <h1 v-if="$q.platform.is.desktop" class="q-mx-auto q-mx-md-none animated fadeInRight smoother">2 0 8 4 <br>Gallery</h1>
+            <h1 class="q-mx-auto q-mx-md-none animated fadeInRight smoother gt-md">2 0 8 4 <br>Gallery</h1>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@
           </div>
         </div>
       </div>
-      <Footer class="footer-logo q-mt-auto q-pa-md mobile-hide"/>
+      <Footer class="footer-logo q-mt-auto q-pa-md gt-md"/>
     </section>
   </q-page>
 </template>
