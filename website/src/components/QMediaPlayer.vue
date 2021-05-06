@@ -74,6 +74,9 @@ export default {
 }
 </script>
 <style lang="scss">
+.q-media__loading--video {
+  display: none;
+}
 .fade-out {
   opacity: 0;
   transition: opacity 1.5s;
