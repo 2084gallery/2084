@@ -4,7 +4,7 @@
     <section class="row q-px-lg">
       <div class="col-12">
         <div class="row">
-          <div class="col-md-6 col-12 text-center">
+          <div class="col-md-6 col-12 text-center c-mobile-higher-index">
             <h1 v-if="!$q.platform.is.desktop" class="q-mx-md-none">2 0 8 4 <br>Gallery</h1>
           </div>
           <div class="col-md-6">
@@ -109,23 +109,6 @@ export default {
   bottom: 0;
 }
 
-.panel-content {
-  transition: color 0.7s;
-  max-height: 300px;
-}
-
-.panel-content-disabled {
-  color: #999999;
-}
-
-.text-content {
-  column-count: 1;
-  @media screen and(min-width: $breakpoint-md) {
-    column-count: 2;
-    padding-right: 5%;
-  }
-}
-
 h1 {
   font-size: 120px;
   @media screen and (max-width: $breakpoint-sm) {
@@ -133,5 +116,12 @@ h1 {
     margin-top: 1.3rem;
     margin-bottom: 0;
   }
+}
+
+.c-mobile-higher-index {
+  @media screen and (min-width: $breakpoint-sm) {
+    z-index: 1;
+  }
+  z-index: 0;
 }
 </style>

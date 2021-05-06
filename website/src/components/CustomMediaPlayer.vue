@@ -80,7 +80,6 @@ export default {
 </script>
 <style lang="scss">
 video{
-  z-index: 0;
   position: absolute;
   top: 20%;
   width: 50%;
@@ -90,7 +89,13 @@ video{
     display: block;
     position: inherit;
     width: 100%;
-    max-height: 100%;
+    max-height: 80%;
+    z-index: -1;
+  }
+}
+.q-media.bg-white {
+  @media screen and (max-width: $breakpoint-md) {
+    height: 35vh;
   }
 }
 </style>
