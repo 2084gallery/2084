@@ -40,4 +40,23 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.panel-content {
+  transition: color 0.7s;
+  max-height: 300px;
+}
+
+.panel-content-disabled {
+  color: #999999;
+}
+
+.text-content {
+  column-count: 1;
+  @media screen and(min-width: $breakpoint-md) {
+    column-count: 2;
+    padding-right: 5%;
+  }
+  @media screen and(min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+    width: 40%;
+  }
+}
 </style>
