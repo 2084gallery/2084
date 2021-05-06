@@ -89,6 +89,7 @@ video{
     display: block;
     position: inherit;
     width: 100%;
+    height: 55vh !important;
     max-height: 80%;
     z-index: -1;
   }
