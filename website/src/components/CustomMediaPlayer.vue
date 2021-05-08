@@ -83,7 +83,7 @@ video{
   width: 100%
 }
 .q-media.bg-white {
-  width: 45%;
+  width: 43%;
   position: absolute;
   top: 15%;
   left: 0%;
