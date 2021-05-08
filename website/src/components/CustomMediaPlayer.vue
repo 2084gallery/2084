@@ -80,23 +80,25 @@ export default {
 </script>
 <style lang="scss">
 video{
-  position: absolute;
-  top: 20%;
-  width: 50%;
-  left: 0%;
-  max-height: 80%;
-  @media screen and (max-width: $breakpoint-sm) {
-    display: block;
-    position: inherit;
-    width: 100%;
-    height: 55vh !important;
-    max-height: 80%;
-    z-index: -1;
-  }
+  width: 100%
 }
 .q-media.bg-white {
-  @media screen and (max-width: $breakpoint-md) {
-    height: 35vh;
+  width: 45%;
+  position: absolute;
+  top: 15%;
+  left: 0%;
+  // Phones
+  @media screen and (max-width: $breakpoint-sm) {
+    margin-top: -10%;
+    z-index: -1;
+    max-height: 400px !important;
+    position: inherit;
+    width: 100%;
+  }
+  // Tablets landscape
+  @media screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+    top: 30%;
+    left: 5%;
   }
 }
 </style>
