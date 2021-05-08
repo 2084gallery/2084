@@ -45,7 +45,10 @@
   position: relative;
   color: #000;
   &::after {
-    @include underlined-active('right', 0, 50px, 1px, 5px)
+    @include underlined-active('right', 0, 50px, 1px, 5px);
+    @media screen and (min-width: $breakpoint-md) {
+      @include underlined-active('right', 0, 67px, 1px, 5px);
+    }
   }
 }
 
