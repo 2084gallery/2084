@@ -22,12 +22,14 @@
           </div>
         </div>
       </div>
-      <CustomMediaPlayer/>
+      <div class="rotating-hand" ref="hand">
+        <CustomMediaPlayer />
+      </div>
       <div class="col-12">
         <div class="row">
           <div class="col-md-4"></div>
-          <div class="col-3 col-md-2">
-            <div class="column items-center q-mr-xl q-mr-sm-none">
+          <div class="col-3 col-md-2 button-column-container" :class="{ 'is-scrolled': isScrolled }">
+            <div class="column items-center q-mr-xl q-mr-sm-none button-container">
               <q-btn
                 class="app-btn q-ml-md-xl animated delay-4s fadeIn smoother"
                 align="right"
@@ -45,7 +47,8 @@
                 label="Contact"
                 flat
                 padding="none"
-                :ripple="false" no-caps
+                :ripple="false"
+                no-caps
                 @click="setTabs('contact')"
                 :class="{ 'btn-active': isPanelActive('contact') }"
                 v-if="!isPanelActive('quote')"
@@ -62,7 +65,7 @@
             <div class="col-12 col-md-6 q-ml-auto">
               <div class="row">
                 <div class="col-md">
-                  <CustomTabsPanel :hover="hover" :tab="tab"/>
+                  <CustomTabsPanel :hover="hover" :tab="tab" @text-scrolled="animateScrollHand" />
                 </div>
               </div>
             </div>
@@ -94,10 +97,25 @@ export default {
     return {
       tab: 'quote',
       hover: false,
-      loading: true
+      loading: true,
+      isScrolled: false
     }
   },
   methods: {
+    animateScrollHand (info) {
+      const hand = this.$refs.hand
+      let margin
+
+      if (info.direction === 'up' && info.position === 0) {
+        this.isScrolled = false
+        margin = '0%'
+      }
+      if (info.direction === 'down' && info.position > 0) {
+        this.isScrolled = true
+        margin = '-60%'
+      }
+      hand.style.marginTop = margin
+    },
     isPanelActive (tabName) {
       return this.tab === tabName
     },
@@ -116,6 +134,25 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+
+.button-column-container {
+  .button-container {
+    transition: margin 1s;
+    margin-top: 0%
+  }
+  &.is-scrolled {
+    display: flex;
+    flex-direction: column;
+    .button-container {
+      margin-top: 150%;
+    }
+  }
+}
+
+.rotating-hand {
+  transition: margin 1s
+}
+
 .desktop-fullscreen {
   width: 100%;
   height: 100%;

@@ -13,8 +13,14 @@
         <div>“手价”</div>
       </div>
     </q-tab-panel>
-    <q-tab-panel name="explorer" class="q-pa-none panel-content" :class="{'panel-content-disabled': hoverStatus }">
-      <p class="text-content" v-html="$t('explorer')"></p>
+    <q-tab-panel
+      name="explorer"
+      class="q-pa-none panel-content scroll"
+      :class="{'panel-content-disabled': hoverStatus }"
+      @scroll="emitTextScrolled"
+    >
+      <p id="text-content" class="text-content" v-html="$t('explorer')"></p>
+      <q-scroll-observer @scroll="emitTextScrolled" />
     </q-tab-panel>
     <q-tab-panel name="contact" class="q-pa-none">
       <ContactForm/>
@@ -31,7 +37,11 @@ export default {
     hover: { type: Boolean },
     tab: { type: String }
   },
-  data: () => ({}),
+  methods: {
+    emitTextScrolled (info) {
+      this.$emit('text-scrolled', info)
+    }
+  },
   computed: {
     tabName () {
       return this.tab
