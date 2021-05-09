@@ -12,7 +12,7 @@
       enter-active-class="animated fadeIn smooth"
     >
     <section class="row q-px-lg">
-      <div class="col-12">
+      <div class="col-12 header-title-container">
         <div class="row">
           <div class="col-md-6 col-12 text-center c-mobile-higher-index">
             <h1 class="q-mx-md-none animated fadeIn smoother lt-lg">2 0 8 4 <br>Gallery</h1>
@@ -134,6 +134,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.header-title-container {
+  z-index: 9999;
+}
 
 .button-column-container {
   .button-container {
