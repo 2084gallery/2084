@@ -91,6 +91,7 @@ video{
   @media screen and (max-width: $breakpoint-sm) {
     margin-top: -10%;
     z-index: -1;
+    height: 320px !important;
     max-height: 400px !important;
     position: inherit;
     width: 100%;

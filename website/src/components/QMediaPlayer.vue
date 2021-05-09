@@ -3,7 +3,6 @@
     v-if="renderComponent"
     ref="media"
     :type="type"
-    :autoplay="true"
     :loop="true"
     :muted="muted"
     :playsinline="true"
@@ -14,7 +13,7 @@
     :sources="sources"
     :poster="poster"
     @paused="avoidPausedByClick"
-    @mediaPlayer="mediaPlayerConfig"
+    @ready="mediaPlayerConfig"
   />
 </template>
 
@@ -47,7 +46,7 @@ export default {
   methods: {
     mediaPlayerConfig () {
       // This function is launched when the mediaPlayer component is fully created
-      this.$refs.media.setCurrentTime(0.1)
+      this.$refs.media.play()
     },
     endAction () {
       this.nextSource()
@@ -74,8 +73,8 @@ export default {
 }
 </script>
 <style lang="scss">
-.q-media__loading--video {
-  display: none;
+div.q-media__loading--video {
+  display: none !important;
 }
 
 .fade-out {
