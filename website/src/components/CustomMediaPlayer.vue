@@ -22,25 +22,25 @@ export default {
     videos: [
       {
         label: 'Virtual Mesh Hand',
-        src: 'https://res.cloudinary.com/g2084/video/upload/v1620058859/media/hand_mesh_nshlvr.mp4',
+        src: require('assets/videos/mesh.mp4'),
         type: 'video/mp4',
         poster: ''
       },
       {
         label: 'Glass Hand',
-        src: 'https://res.cloudinary.com/g2084/video/upload/v1620058861/media/hand_glass_y3v88c.mp4',
+        src: require('assets/videos/glass.mp4'),
         type: 'video/mp4',
         poster: ''
       },
       {
         label: 'Leather Hand',
-        src: 'https://res.cloudinary.com/g2084/video/upload/v1620058859/media/hand_leather_xjrca8.mp4',
+        src: require('assets/videos/leather.mp4'),
         type: 'video/mp4',
         poster: ''
       },
       {
         label: 'Iron Hand',
-        src: 'https://res.cloudinary.com/g2084/video/upload/v1620058861/media/hand_iron_xu7yk5.mp4',
+        src: require('assets/videos/iron.mp4'),
         type: 'video/mp4',
         poster: ''
       }
