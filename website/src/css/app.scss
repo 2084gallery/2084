@@ -68,3 +68,17 @@ body {
     }
   }
 }
+
+.q-field__marginal {
+  font-size: $body-font-size;
+  @media screen and(max-width: $breakpoint-sm) {
+    font-size: $body-font-size-sm
+  }
+}
+
+.q-input, .q-field {
+  font-size: $body-font-size;
+  @media screen and(max-width: $breakpoint-sm) {
+    font-size: $body-font-size-sm
+  }
+}

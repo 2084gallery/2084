@@ -65,7 +65,7 @@
             <div class="col-12 col-md-6 q-ml-auto">
               <div class="row">
                 <div class="col-md">
-                  <CustomTabsPanel :hover="hover" :tab="tab" @text-scrolled="animateScrollHand" />
+                  <CustomTabsPanel :hover="hover" :tab="tab" @content-scrolled="animateScrollHand" />
                 </div>
               </div>
             </div>
