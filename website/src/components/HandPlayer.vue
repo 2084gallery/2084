@@ -13,7 +13,6 @@
     @paused="startTransition"
     @canplaythrough="endTransition"
     :class="isTransitioning ? 'fade-out' : 'fade-in'"
-    :poster="poster"
   />
 </template>
 
@@ -27,7 +26,6 @@ export default {
     return {
       currentVideoIndex: 0,
       isTransitioning: false,
-      poster: require('assets/screen.png'),
       videos: [
         require('assets/videos/mesh.mp4'),
         require('assets/videos/glass.mp4'),
