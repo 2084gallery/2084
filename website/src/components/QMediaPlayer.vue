@@ -13,9 +13,10 @@
     :sources="sources"
     :poster="poster"
     @paused="startTransition"
-    @ready="mediaPlayerConfig"
+
     @canplaythrough="endTransition"
     :class="isTransitioning ? 'fade-out' : 'fade-in'"
+    :autoplay="true"
   />
 </template>
 
@@ -47,16 +48,6 @@ export default {
     isTransitioning: false
   }),
   methods: {
-    mediaPlayerConfig () {
-      // This function is launched when the mediaPlayer component is fully created
-      this.$refs.media.play()
-      this.$refs.media.$el.muted = ''
-    },
-    endAction () {
-      this.nextSource()
-      this.$refs.media.play()
-      // Launched when video come to an end
-    },
     nextSource () {
       // Function for lauching the next source
       const transitionDuration = 1500
@@ -67,8 +58,7 @@ export default {
       this.isTransitioning = false
     },
     startTransition () {
-      // By default when the user click on the video, it triggered a pause event
-      // This function was made to avoid this behavior
+      // Prevent user from pausing the video
       this.$refs.media.play()
       this.isTransitioning = true
       this.nextSource()

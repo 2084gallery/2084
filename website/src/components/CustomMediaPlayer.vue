@@ -63,7 +63,7 @@ export default {
       return [source]
     },
     removeTimeIndicator (source) {
-      // This function remove the #t time indicator
+      // This function extract the #t time indicator
       return source.src.split('#t')[0]
     },
     nextResource (currentTime) {
