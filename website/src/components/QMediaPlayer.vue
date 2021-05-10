@@ -12,8 +12,10 @@
     :background-color="bgColor"
     :sources="sources"
     :poster="poster"
-    @paused="avoidPausedByClick"
+    @paused="startTransition"
     @ready="mediaPlayerConfig"
+    @canplaythrough="endTransition"
+    :class="isTransitioning ? 'fade-out' : 'fade-in'"
   />
 </template>
 
@@ -41,12 +43,14 @@ export default {
     }
   },
   data: () => ({
-    renderComponent: true
+    renderComponent: true,
+    isTransitioning: false
   }),
   methods: {
     mediaPlayerConfig () {
       // This function is launched when the mediaPlayer component is fully created
       this.$refs.media.play()
+      this.$refs.media.$el.muted = ''
     },
     endAction () {
       this.nextSource()
@@ -55,34 +59,34 @@ export default {
     },
     nextSource () {
       // Function for lauching the next source
-      this.$emit('next-source', this.$refs.media.currentTime())
+      const transitionDuration = 1500
+      setTimeout(() =>
+        this.$emit('next-source', this.$refs.media.currentTime()), transitionDuration)
     },
-    avoidPausedByClick () {
+    endTransition () {
+      this.isTransitioning = false
+    },
+    startTransition () {
       // By default when the user click on the video, it triggered a pause event
       // This function was made to avoid this behavior
       this.$refs.media.play()
-      this.$refs.media.$el.classList.add('fade-out')
-      this.$refs.media.$el.classList.remove('fade-in')
-      setTimeout(() => {
-        this.nextSource()
-        this.$refs.media.$el.classList.remove('fade-out')
-        this.$refs.media.$el.classList.add('fade-in')
-      }, 500)
+      this.isTransitioning = true
+      this.nextSource()
     }
   }
 }
 </script>
 <style lang="scss">
-div.q-media__loading--video {
-  display: none !important;
+.q-media {
+  opacity: 1;
+  transition: opacity 2s;
+  &.fade-out {
+    opacity: 0;
+  }
+  &.fade-in {
+    opacity: 1;
+    transition: opacity 4s;
+  }
 }
 
-.fade-out {
-  opacity: 0;
-  transition: opacity 1.5s;
-}
-.fade-in {
-  opacity: 1;
-  transition: opacity 5s;
-}
 </style>

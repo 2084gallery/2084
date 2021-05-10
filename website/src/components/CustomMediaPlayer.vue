@@ -95,6 +95,10 @@ video{
     max-height: 400px !important;
     position: inherit;
     width: 100%;
+    video {
+      width: 327px !important;
+      height: 320px !important;
+    }
   }
   // Tablets landscape
   @media screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
