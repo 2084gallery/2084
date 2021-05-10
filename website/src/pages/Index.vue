@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="rotating-hand" ref="hand">
-        <CustomMediaPlayer />
+        <HandPlayer />
       </div>
       <div class="col-12">
         <div class="row">
@@ -82,7 +82,7 @@
 export default {
   name: 'PageIndex',
   components: {
-    CustomMediaPlayer: () => import('components/CustomMediaPlayer'),
+    HandPlayer: () => import('components/HandPlayer'),
     LangSwitcher: () => import('components/LangSwitcher'),
     CustomTabsPanel: () => import('components/CustomTabsPanel'),
     Footer: () => import('components/Footer'),
@@ -136,6 +136,7 @@ export default {
 <style lang="scss" scoped>
 .header-title-container {
   z-index: 9999;
+  pointer-events: none;
 }
 
 .button-column-container {
