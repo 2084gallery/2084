@@ -6,7 +6,7 @@ let transporter = nodemailer.createTransport({
   secure: true, // use TLS
   auth: {
     user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PW
+    pass: process.env.MAIL_PASSWORD
   }
 })
 
@@ -23,7 +23,7 @@ export default function transporterVerify(request, response) {
        transporter.sendMail(translate(request.body).receiver).catch(err => { throw err })
        response.sendStatus(200)
      })
-     .catch(err => { throw err })
+     .catch(e => { throw new Error(e) })
   } catch (e) {
     response.sendStatus(400)
   }

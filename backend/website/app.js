@@ -9,7 +9,8 @@ app.use(cors())
 app.use(bodyParser.json())
 
 let port = process.env.PORT || 4000
-let url = process.env.FRONT_URL || `http://localhost:${port}`
+let url = process.env.FRONT_URL || 'http://localhost:8080'
+
 app.use(cors({
   origin: url
 }))
