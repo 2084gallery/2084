@@ -21,9 +21,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# showcase-website-mailing
-/backend/showcase-website-mailing/node_modules
-/backend/showcase-website-mailing/.env
+# website-mailing
+/backend/website/node_modules
+/backend/website/.env
 
 # Editor directories and files
 .idea
