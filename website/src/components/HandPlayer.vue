@@ -1,0 +1,112 @@
+<template>
+  <q-media-player
+    ref="media"
+    type="video"
+    :loop="true"
+    :muted="true"
+    :playsinline="true"
+    :no-controls="true"
+    :show-big-play-button="false"
+    cross-origin="anonymous"
+    background-color="white"
+    :source="source"
+    @paused="startTransition"
+    @canplaythrough="endTransition"
+    :class="isTransitioning ? 'fade-out' : 'fade-in'"
+  />
+</template>
+
+<script>
+import { QMediaPlayer } from '@quasar/quasar-ui-qmediaplayer'
+export default {
+  components: {
+    QMediaPlayer
+  },
+  data () {
+    return {
+      currentVideoIndex: 0,
+      isTransitioning: false,
+      videos: [
+        require('assets/videos/mesh.mp4'),
+        require('assets/videos/glass.mp4'),
+        require('assets/videos/leather.mp4'),
+        require('assets/videos/iron.mp4')
+      ],
+      source: null
+    }
+  },
+  mounted () {
+    this.setSource()
+  },
+  methods: {
+    endTransition () {
+      this.isTransitioning = false
+      this.$refs.media.play()
+    },
+    startTransition () {
+      // Prevent user from pausing the video
+      this.$refs.media.play()
+      this.isTransitioning = true
+      this.setNextSource()
+    },
+    isLastVideo () {
+      return this.currentVideoIndex + 1 === this.videos.length
+    },
+    incrementCurrentVideoIndex () {
+      this.currentVideoIndex = this.isLastVideo() ? 0 : ++this.currentVideoIndex
+    },
+    setSource (time = 0.5) {
+      this.source = `${this.videos[this.currentVideoIndex]}#t=${time}`
+    },
+    setNextSource () {
+      const transitionDuration = 1500
+      setTimeout(() => {
+        const previousVideoTime = this.$refs.media.currentTime()
+        this.incrementCurrentVideoIndex()
+        this.setSource(previousVideoTime)
+      }, transitionDuration)
+    }
+  }
+}
+</script>
+<style lang="scss">
+.q-media {
+  opacity: 1;
+  transition: opacity 2s;
+  &.fade-out {
+    opacity: 0;
+  }
+  &.fade-in {
+    opacity: 1;
+    transition: opacity 3s;
+  }
+}
+
+video{
+  width: 100%
+}
+.q-media.bg-white {
+  width: 43%;
+  position: absolute;
+  top: 15%;
+  left: 0%;
+  // Phones
+  @media screen and (max-width: $breakpoint-sm) {
+    margin-top: -10%;
+    z-index: -1;
+    height: 320px !important;
+    max-height: 400px !important;
+    position: inherit;
+    width: 100%;
+    video {
+      width: 327px !important;
+      height: 320px !important;
+    }
+  }
+  // Tablets landscape
+  @media screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+    top: 30%;
+    left: 5%;
+  }
+}
+</style>

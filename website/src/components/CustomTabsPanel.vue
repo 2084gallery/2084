@@ -17,13 +17,13 @@
       name="explorer"
       class="q-pa-none panel-content scroll"
       :class="{'panel-content-disabled': hoverStatus }"
-      @scroll="emitTextScrolled"
     >
       <p id="text-content" class="text-content" v-html="$t('explorer')"></p>
       <q-scroll-observer @scroll="emitTextScrolled" />
     </q-tab-panel>
-    <q-tab-panel name="contact" class="q-pa-none">
+    <q-tab-panel name="contact" class="q-pa-none panel-content scroll">
       <ContactForm/>
+      <q-scroll-observer @scroll="emitTextScrolled" />
     </q-tab-panel>
   </q-tab-panels>
 </template>
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     emitTextScrolled (info) {
-      this.$emit('text-scrolled', info)
+      this.$emit('content-scrolled', info)
     }
   },
   computed: {
@@ -56,6 +56,10 @@ export default {
 .panel-content {
   transition: color 0.7s;
   max-height: 300px;
+  overflow-y: scroll;
+  @media screen and(max-width: $breakpoint-sm) {
+    max-height: 250px;
+  }
 }
 
 .panel-content-disabled {
