@@ -1,0 +1,65 @@
+@mixin initiating-spin($name, $top-0, $left-0, $top-1, $left-1, $top-2, $left-2, $top-3, $left-3, $top-4, $left-4) {
+  @keyframes #{$name}{
+    0% {
+      color: #9e9e9e;
+      top: $top-0;
+      left: $left-0;
+    }
+    25% {
+      top: $top-1;
+      left: $left-1;
+    }
+    50% {
+      top: $top-2;
+      left: $left-2;
+      color: #000;
+    }
+    75% {
+      top: $top-3;
+      left: $left-3;
+    }
+    100% {
+      top: $top-4;
+      left: $left-4;
+    }
+  }
+}
+
+#loading-spinner {
+  z-index: 999;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #9e9e9e;
+}
+
+.top-left{
+  animation: top-left 5s ease;
+}
+.top-right{
+  animation: top-right 5s ease;
+}
+.bottom-right{
+  animation: bottom-right 5s ease;
+}
+.bottom-left{
+  animation: bottom-left 5s ease;
+}
+
+@include initiating-spin('top-left', 40%, 35%, 40%, 55%, 50%, 55%, 50%, 35%, 40%, 35%);
+@include initiating-spin('top-right', 40%, 55%, 50%, 55%, 50%, 35%, 40%, 35%, 40%, 55%);
+@include initiating-spin('bottom-right', 50%, 55%, 50%, 35%, 40%, 35%, 40%, 55%, 50%, 55%);
+@include initiating-spin('bottom-left', 50%, 35%, 40%, 35%, 40%, 55%, 50%, 55%, 50%, 35%);
+
+@media screen and (min-width: $breakpoint-md) {
+  @include initiating-spin('top-left', 30%, 40%, 30%, 60%, 60%, 60%, 60%, 40%, 30%, 40%);
+  @include initiating-spin('top-right', 30%, 60%, 60%, 60%, 60%, 40%, 30%, 40%, 30%, 60%);
+  @include initiating-spin('bottom-right', 60%, 60%, 60%, 40%, 30%, 40%, 30%, 60%, 60%, 60%);
+  @include initiating-spin('bottom-left', 60%, 40%, 30%, 40%, 30%, 60%, 60%, 60%, 60%, 40%);
+}
