@@ -12,7 +12,8 @@
     :source="source"
     @paused="startTransition"
     @canplaythrough="endTransition"
-    :class="isTransitioning ? 'fade-out' : 'fade-in'"
+    :class="{ 'fade-out': isTransitioning } "
+    autoplay
   />
 </template>
 
@@ -40,8 +41,10 @@ export default {
   },
   methods: {
     endTransition () {
-      this.isTransitioning = false
-      this.$refs.media.play()
+      setTimeout(() => {
+        this.isTransitioning = false
+        this.$refs.media.play()
+      }, 1500)
     },
     startTransition () {
       // Prevent user from pausing the video
@@ -74,11 +77,7 @@ export default {
   opacity: 1;
   transition: opacity 2s;
   &.fade-out {
-    opacity: 0;
-  }
-  &.fade-in {
-    opacity: 1;
-    transition: opacity 3s;
+    opacity: 0 !important;
   }
 }
 

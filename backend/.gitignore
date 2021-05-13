@@ -1,0 +1,30 @@
+.DS_Store
+# client folder
+/website/.quasar
+/website/.DS_Store
+/website/.thumbs.db
+/website/node_modules
+/website/src-cordova/node_modules
+/website/src-cordova/platforms
+/website/src-cordova/plugins
+/website/src-cordova/www
+/website/dist
+/website/.env
+
+# server folder
+/backend/.DS_Store
+/backend/.thumbs.db
+/backend/node_modules
+/backend/.env
+# general
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
