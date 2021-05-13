@@ -10,10 +10,6 @@
  * Note: Changes to this file (but not any file it imports!) are picked up by the
  * development server, but such updates are costly since the dev-server needs a reboot.
  */
-const
-  serveStatic = require('serve-static'),
-  history = require('connect-history-api-fallback'),
-  sslRedirect = require('heroku-ssl-redirect')
 
 module.exports.extendApp = function ({ app, ssr }) {
   /*
@@ -21,7 +17,4 @@ module.exports.extendApp = function ({ app, ssr }) {
      want to use with development server too.
      Example: app.use(), app.get() etc
   */
-  app.use(history())
-  app.use(serveStatic(__dirname))
-  app.use(sslRedirect())
 }
