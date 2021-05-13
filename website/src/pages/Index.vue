@@ -1,5 +1,6 @@
 <template>
-  <q-page class="desktop-fullscreen">
+  <q-page class="desktop-fullscreen scroll">
+    <q-scroll-observer @scroll="animateScrollHand" />
     <transition
       v-if="loading"
       enter-active-class="animated fadeIn smooth"
@@ -11,7 +12,7 @@
       v-else
       enter-active-class="animated fadeIn smooth"
     >
-    <section class="row q-px-lg">
+    <section class="row q-px-lg scroll">
       <div class="col-12 header-title-container">
         <div class="row">
           <div class="col-md-6 col-12 text-center c-mobile-higher-index">
@@ -22,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="rotating-hand" ref="hand">
+      <div class="rotating-hand" :class="{ 'is-scrolled': isScrolled }" ref="hand">
         <HandPlayer />
       </div>
       <div class="col-12">
@@ -103,18 +104,16 @@ export default {
   },
   methods: {
     animateScrollHand (info) {
-      const hand = this.$refs.hand
-      let margin
+      if (!this.$q.platform.is.mobile) return
+      const scrollReachTop = info.direction === 'up' && info.position === 0
+      const scrollPassedTop = info.direction === 'down' && info.position > 0
 
-      if (info.direction === 'up' && info.position === 0) {
+      if (scrollReachTop) {
         this.isScrolled = false
-        margin = '0%'
       }
-      if (info.direction === 'down' && info.position > 0) {
+      if (scrollPassedTop) {
         this.isScrolled = true
-        margin = '-60%'
       }
-      hand.style.marginTop = margin
     },
     isPanelActive (tabName) {
       return this.tab === tabName
@@ -154,7 +153,11 @@ export default {
 }
 
 .rotating-hand {
-  transition: margin 1s
+  transition: margin 1s;
+  margin-top: 0%;
+  &.is-scrolled {
+    margin-top: -60%;
+  }
 }
 
 .desktop-fullscreen {
@@ -162,6 +165,9 @@ export default {
   height: 100%;
   display: block;
   position: fixed;
+  @media screen and (max-width: $breakpoint-sm) {
+    overflow-x: scroll;
+  }
 }
 
 .footer-logo {

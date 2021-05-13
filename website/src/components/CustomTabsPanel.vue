@@ -19,11 +19,9 @@
       :class="{'panel-content-disabled': hoverStatus }"
     >
       <p id="text-content" class="text-content" v-html="$t('explorer')"></p>
-      <q-scroll-observer @scroll="emitTextScrolled" />
     </q-tab-panel>
     <q-tab-panel name="contact" class="q-pa-none panel-content scroll">
       <ContactForm/>
-      <q-scroll-observer @scroll="emitTextScrolled" />
     </q-tab-panel>
   </q-tab-panels>
 </template>
@@ -58,7 +56,7 @@ export default {
   max-height: 300px;
   overflow-y: scroll;
   @media screen and(max-width: $breakpoint-sm) {
-    max-height: 250px;
+    max-height: 100%
   }
 }
 
