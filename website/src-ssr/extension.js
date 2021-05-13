@@ -14,6 +14,7 @@ const
   serveStatic = require('serve-static'),
   history = require('connect-history-api-fallback'),
   sslRedirect = require('heroku-ssl-redirect')
+
 module.exports.extendApp = function ({ app, ssr }) {
   /*
      Extend the parts of the express app that you
@@ -22,5 +23,5 @@ module.exports.extendApp = function ({ app, ssr }) {
   */
   app.use(history())
   app.use(serveStatic(__dirname))
-  app.use(sslRedirect)
+  app.use(sslRedirect())
 }
