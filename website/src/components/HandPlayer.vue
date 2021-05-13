@@ -41,10 +41,12 @@ export default {
   },
   methods: {
     endTransition () {
+      const isFirefoxOrSafari = this.$q.platform.is.firefox || this.$q.platform.is.safari
+      const transitionDuration = isFirefoxOrSafari ? 1500 : 0
       setTimeout(() => {
         this.isTransitioning = false
         this.$refs.media.play()
-      }, 1500)
+      }, transitionDuration)
     },
     startTransition () {
       // Prevent user from pausing the video
