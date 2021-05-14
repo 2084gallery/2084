@@ -1,6 +1,5 @@
 <template>
-  <q-page class="desktop-fullscreen scroll">
-    <q-scroll-observer @scroll="animateScrollHand" />
+  <q-page class="desktop-fullscreen">
     <transition
       v-if="loading"
       enter-active-class="animated fadeIn smooth"
@@ -23,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div class="rotating-hand" :class="{ 'is-scrolled': isScrolled }" ref="hand">
+      <div class="rotating-hand" ref="hand">
         <HandPlayer />
       </div>
       <div class="col-12">
@@ -103,18 +102,6 @@ export default {
     }
   },
   methods: {
-    animateScrollHand (info) {
-      if (!this.$q.platform.is.mobile) return
-      const scrollReachTop = info.direction === 'up' && info.position === 0
-      const scrollPassedTop = info.direction === 'down' && info.position > 0
-
-      if (scrollReachTop) {
-        this.isScrolled = false
-      }
-      if (scrollPassedTop) {
-        this.isScrolled = true
-      }
-    },
     isPanelActive (tabName) {
       return this.tab === tabName
     },
@@ -152,11 +139,17 @@ export default {
   }
 }
 
+@keyframes slideUp {
+  from { margin-top: 0; }
+  to   { margin-top: -60%; }
+}
+
 .rotating-hand {
-  transition: margin 1s;
-  margin-top: 0%;
-  &.is-scrolled {
-    margin-top: -60%;
+  @media screen and (max-width: $breakpoint-sm) {
+    margin-top: 0;
+    animation: 1.5s ease-in-out slideUp;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
   }
 }
 
