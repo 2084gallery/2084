@@ -86,28 +86,35 @@ export default {
 video{
   width: 100%
 }
-.q-media.bg-white {
+
+.q-media {
   width: 43%;
   position: absolute;
   top: 15%;
   left: 0%;
+
+  // Tablets landscape
+  @media screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) and (orientation: landscape) {
+    width: 50%;
+    top: 20%;
+    left: 2%;
+  }
+
+  // Tablets portrait
+  @media screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) and (orientation: portrait) {
+    width: 50%;
+    top: 15%;
+    left: 2%;
+  }
+
   // Phones
-  @media screen and (max-width: $breakpoint-sm) {
+  @media screen and (max-width: $breakpoint-xs) {
     margin-top: -10%;
     z-index: -1;
+    position: inherit;
     height: 320px !important;
     max-height: 400px !important;
-    position: inherit;
     width: 100%;
-    video {
-      width: 327px !important;
-      height: 320px !important;
-    }
-  }
-  // Tablets landscape
-  @media screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
-    top: 30%;
-    left: 5%;
   }
 }
 </style>

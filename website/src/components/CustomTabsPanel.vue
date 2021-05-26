@@ -65,7 +65,7 @@ export default {
     padding-right: 5%;
   }
   @media screen and(min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
-    width: 40%;
+    width: 70%;
   }
 }
 

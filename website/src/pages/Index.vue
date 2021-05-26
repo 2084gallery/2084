@@ -15,10 +15,10 @@
       <div class="col-12 header-title-container">
         <div class="row">
           <div class="col-md-6 col-12 text-center c-mobile-higher-index">
-            <h1 class="q-mx-md-none animated fadeIn smoother lt-lg">2 0 8 4 <br>Gallery</h1>
+            <h1 class="q-ma-sm-xl animated fadeIn smoother lt-lg text-left">2 0 8 4 <br>Gallery</h1>
           </div>
           <div class="col-md-6">
-            <h1 class="q-mx-auto q-mx-md-none animated fadeInRight duration-2s gt-md">2 0 8 4 <br>Gallery</h1>
+            <h1 class="q-mx-auto q-mx-md-none q-my-3xl animated fadeInRight duration-2s gt-md">2 0 8 4 <br>Gallery</h1>
           </div>
         </div>
       </div>
@@ -27,8 +27,8 @@
       </div>
       <div class="col-12">
         <div class="row">
-          <div class="col-md-4"></div>
-          <div class="col-3 col-md-2 button-column-container" :class="{ 'is-scrolled': isScrolled }">
+          <div class="col-sm-4"></div>
+          <div class="col-3 col-sm-2 button-column-container" :class="{ 'is-scrolled': isScrolled }">
             <div class="column items-center q-mr-xl q-mr-sm-none button-container">
               <q-btn
                 class="app-btn q-ml-md-xl animated delay-6s fadeIn smoother"
@@ -56,13 +56,13 @@
 
             </div>
           </div>
-          <div class="col-9 col-md-6">
+          <div class="col-9 col-sm-6">
             <LangSwitcher class="q-mb-md"
               @mouseover="hover = true"
               @mouseout="hover = false"
               v-if="!isPanelActive('quote')"
             />
-            <div class="col-12 col-md-6 q-ml-auto">
+            <div class="col-12 col-sm-6 q-ml-auto">
               <div class="row">
                 <div class="col-md full-width">
                   <CustomTabsPanel :hover="hover" :tab="tab" />
@@ -72,7 +72,7 @@
           </div>
         </div>
       </div>
-      <Footer class="footer-logo q-mt-auto q-pa-md gt-md"/>
+      <Footer class="footer-logo q-mt-auto q-ma-sm-xl  gt-xs"/>
     </section>
     </transition>
   </q-page>
@@ -145,10 +145,10 @@ export default {
 }
 
 .rotating-hand {
-  @media screen and (max-width: $breakpoint-sm) {
+  @media screen and (max-width: $breakpoint-xs) {
     margin-top: 0;
     animation: 1.5s ease-in-out slideUp;
-    animation-delay: 1s;
+    animation-delay: 8s;
     animation-fill-mode: forwards;
   }
 }
@@ -173,7 +173,6 @@ h1 {
   @media screen and (max-width: $breakpoint-sm) {
     font-size: 108px;
     margin-top: 1.3rem;
-    margin-bottom: 0;
   }
 }
 
