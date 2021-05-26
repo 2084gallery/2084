@@ -42,7 +42,7 @@ export default {
   methods: {
     endTransition () {
       const isFirefoxOrSafari = this.$q.platform.is.firefox || this.$q.platform.is.safari
-      const transitionDuration = isFirefoxOrSafari ? 1500 : 0
+      const transitionDuration = isFirefoxOrSafari ? 1500 : 300
       setTimeout(() => {
         this.isTransitioning = false
         this.$refs.media.play()
