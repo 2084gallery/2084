@@ -18,7 +18,7 @@
             <h1 class="q-mx-md-none animated fadeIn smoother lt-lg">2 0 8 4 <br>Gallery</h1>
           </div>
           <div class="col-md-6">
-            <h1 class="q-mx-auto q-mx-md-none animated fadeInRight smoother gt-md">2 0 8 4 <br>Gallery</h1>
+            <h1 class="q-mx-auto q-mx-md-none animated fadeInRight duration-2s gt-md">2 0 8 4 <br>Gallery</h1>
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@
           <div class="col-3 col-md-2 button-column-container" :class="{ 'is-scrolled': isScrolled }">
             <div class="column items-center q-mr-xl q-mr-sm-none button-container">
               <q-btn
-                class="app-btn q-ml-md-xl animated delay-4s fadeIn smoother"
+                class="app-btn q-ml-md-xl animated delay-6s fadeIn smoother"
                 align="right"
                 label="Explorer"
                 flat
@@ -65,7 +65,7 @@
             <div class="col-12 col-md-6 q-ml-auto">
               <div class="row">
                 <div class="col-md">
-                  <CustomTabsPanel :hover="hover" :tab="tab" @content-scrolled="animateScrollHand" />
+                  <CustomTabsPanel :hover="hover" :tab="tab" />
                 </div>
               </div>
             </div>
