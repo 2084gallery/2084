@@ -64,7 +64,7 @@
             />
             <div class="col-12 col-md-6 q-ml-auto">
               <div class="row">
-                <div class="col-md">
+                <div class="col-md full-width">
                   <CustomTabsPanel :hover="hover" :tab="tab" />
                 </div>
               </div>
