@@ -86,3 +86,7 @@ body {
     font-size: $body-font-size-sm
   }
 }
+
+.scroll {
+  overflow: hidden !important;
+}
