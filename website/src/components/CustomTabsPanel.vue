@@ -4,7 +4,7 @@
     animated
     :swipeable="false"
   >
-    <q-tab-panel name="quote" class="q-pa-none panel-content animated delay-5s fadeIn smoother">
+    <q-tab-panel name="quote" class="q-pa-none panel-content animated delay-5s fadeIn smoother citation-bloc">
       <div class="text-grey">
         <div class="q-mb-sm">“Une expérience bien conçue et bien conduite procure un plaisir comparable à celui qu'éprouve l'artisan devant un travail bien fait”</div>
         <div class="q-mb-sm">“A well-designed and well-conducted experience gives a pleasure comparable to what the craftsman feels in front of a job well done.”</div>
@@ -66,6 +66,14 @@ export default {
   }
   @media screen and(min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
     width: 40%;
+  }
+}
+
+.citation-bloc {
+  padding-right: 5%;
+  margin-top: 2px;
+  @media screen and(min-width: $breakpoint-md) {
+    margin-top: 4px;
   }
 }
 </style>
