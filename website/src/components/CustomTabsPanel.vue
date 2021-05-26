@@ -3,14 +3,13 @@
     v-model="tabName"
     animated
     :swipeable="false"
-    transition-prev="fade"
-    transition-next="fade"
   >
     <q-tab-panel name="quote" class="q-pa-none panel-content animated delay-5s fadeIn smoother">
       <div class="text-grey">
-        <div>“Citation main”</div>
-        <div>“Hand quote”</div>
-        <div>“手价”</div>
+        <div class="q-mb-sm">“Une expérience bien conçue et bien conduite procure un plaisir comparable à celui qu'éprouve l'artisan devant un travail bien fait”</div>
+        <div class="q-mb-sm">“A well-designed and well-conducted experience gives a pleasure comparable to what the craftsman feels in front of a job well done.”</div>
+        <div class="q-mb-sm">“精心设计和良好操作的体验可带来与工匠在做得好的工作之前所能感觉到的愉悦感”</div>
+        <div>- Pierre Curie</div>
       </div>
     </q-tab-panel>
     <q-tab-panel
@@ -34,11 +33,6 @@ export default {
   props: {
     hover: { type: Boolean },
     tab: { type: String }
-  },
-  methods: {
-    emitTextScrolled (info) {
-      this.$emit('content-scrolled', info)
-    }
   },
   computed: {
     tabName () {
