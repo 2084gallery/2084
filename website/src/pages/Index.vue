@@ -159,7 +159,7 @@ export default {
   display: block;
   position: fixed;
   @media screen and (max-width: $breakpoint-sm) {
-    overflow-x: scroll;
+    overflow-x: hidden;
   }
 }
 
