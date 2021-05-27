@@ -79,8 +79,4 @@ export default {
     margin-top: 4px;
   }
 }
-.fade-active {
-  opacity: 1;
-  transition: opacity 4s ease;
-}
 </style>
