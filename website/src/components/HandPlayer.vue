@@ -29,7 +29,7 @@ export default {
       isTransitioning: false,
       videos: [
         'https://res.cloudinary.com/g2084/video/upload/v1620058861/media/hand_iron_xu7yk5.mp4',
-        'https://res.cloudinary.com/g2084/video/upload/v1620058861/media/hand_glass_y3v88c.mp4',
+        'https://res.cloudinary.com/g2084/video/upload/v1622115981/media/hand_glass_vzjtsc.mp4',
         'https://res.cloudinary.com/g2084/video/upload/v1620058859/media/hand_mesh_nshlvr.mp4',
         'https://res.cloudinary.com/g2084/video/upload/v1620058859/media/hand_leather_xjrca8.mp4'
       ],
