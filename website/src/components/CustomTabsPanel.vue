@@ -1,7 +1,6 @@
 <template>
   <q-tab-panels
     v-model="tabName"
-    animated
     :swipeable="false"
   >
     <q-tab-panel name="quote" class="q-pa-none panel-content animated delay-5s fadeIn smoother citation-bloc">
@@ -15,13 +14,17 @@
     <q-tab-panel
       name="explorer"
       class="q-pa-none panel-content scroll"
-      :class="{'panel-content-disabled': hoverStatus }"
+      :class="{'panel-content-disabled': hoverStatus, 'animated duration-3s fadeIn': tabName === 'explorer'}"
     >
       <p id="text-content" class="text-content" v-html="$t('explorer')"></p>
     </q-tab-panel>
-    <q-tab-panel name="contact" class="q-pa-none panel-content scroll">
-      <ContactForm/>
-    </q-tab-panel>
+      <q-tab-panel
+      name="contact"
+      class="q-pa-none panel-content scroll"
+      :class="{'animated duration-3s fadeIn': tabName === 'contact'}"
+      >
+        <ContactForm/>
+      </q-tab-panel>
   </q-tab-panels>
 </template>
 <script>
@@ -65,7 +68,7 @@ export default {
     padding-right: 5%;
   }
   @media screen and(min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
-    width: 70%;
+    width: 40%;
   }
 }
 
@@ -75,5 +78,9 @@ export default {
   @media screen and(min-width: $breakpoint-md) {
     margin-top: 4px;
   }
+}
+.fade-active {
+  opacity: 1;
+  transition: opacity 4s ease;
 }
 </style>
