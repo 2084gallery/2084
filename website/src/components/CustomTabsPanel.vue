@@ -51,7 +51,7 @@ export default {
 .panel-content {
   transition: color 0.7s;
   max-height: 300px;
-  overflow-y: scroll;
+  overflow-y: hidden;
   @media screen and(max-width: $breakpoint-sm) {
     max-height: 100%
   }
