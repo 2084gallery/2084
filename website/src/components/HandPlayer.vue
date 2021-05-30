@@ -111,10 +111,11 @@ video{
   @media screen and (max-width: $breakpoint-xs) {
     margin-top: -10%;
     z-index: -1;
-    position: inherit;
-    height: 320px !important;
+    position: absolute;
+    left: -100%;
+    top: 0%;
     max-height: 400px !important;
-    width: 100%;
+    width: 200%;
   }
 }
 </style>

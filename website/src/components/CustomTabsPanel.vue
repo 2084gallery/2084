@@ -46,6 +46,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.q-tab-panels {
+  background-color: transparent !important;
+}
 .panel-content {
   transition: color 0.7s;
   max-height: 300px;
