@@ -15,7 +15,7 @@
       <div class="col-12 header-title-container">
         <div class="row">
           <div class="col-md-6 col-12 text-center c-mobile-higher-index">
-            <h1 class="q-ma-sm-xl animated fadeIn smoother lt-lg text-left">2 0 8 4 <br>Gallery</h1>
+            <h1 class="q-ma-sm-xl animated fadeIn smoother lt-lg text-center">2 0 8 4 <br>Gallery</h1>
           </div>
           <div class="col-md-6">
             <h1 class="q-mx-auto q-mx-md-none q-my-3xl animated fadeInRight duration-2s gt-md">2 0 8 4 <br>Gallery</h1>
